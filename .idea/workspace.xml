@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9378a160-4356-4dd7-822f-741e4ee7c5d2" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="1YvulthQdXe9YKdNfsGcZl9AIVB" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/lenovo/Documents/NafithAppsAutomation",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$USER_HOME$/WaseetAndroidAutomation" />
+      <recent name="$PROJECT_DIR$/src/main/java/helpers" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\lenovo\Documents\AbstractAppsFramework\src" />
+      <recent name="$PROJECT_DIR$/src/main/java/testData" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="parallelTests" />
+      <recent name="base" />
+      <recent name="myFavorites" />
+      <recent name="addPost" />
+      <recent name="smokeTest" />
+    </key>
+  </component>
+  <component name="RunManager" selected="TestNG./Users/imranmoqbel/Documents/WaseetiOSAutomation/WaseetiOSAutomation-Intellij/testng.xml">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="NafithAppsAutomation" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="NafithAppsAutomation" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SmokeTest2" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="NafithAppsAutomation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="parallelTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="smokeTest" />
+      <option name="MAIN_CLASS_NAME" value="smokeTest.SmokeTest2" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SmokeTest2.RandomAddToFavorites" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="NafithAppsAutomation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="parallelTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="smokeTest" />
+      <option name="MAIN_CLASS_NAME" value="smokeTest.SmokeTest2" />
+      <option name="METHOD_NAME" value="RandomAddToFavorites" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Tests.randomScenario" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="NafithAppsAutomation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="mainTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="mainTests" />
+      <option name="MAIN_CLASS_NAME" value="mainTests.Tests" />
+      <option name="METHOD_NAME" value="randomScenario" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="/Users/imranmoqbel/Documents/Waseet iOS Automation/Waseet iOS Automation - Intellij/smokeTest.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="NafithAppsAutomation" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/smokeTest.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="/Users/imranmoqbel/Documents/WaseetiOSAutomation/WaseetiOSAutomation-Intellij/testng.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="NafithAppsAutomation" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/testng.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="TestNG./Users/imranmoqbel/Documents/WaseetiOSAutomation/WaseetiOSAutomation-Intellij/testng.xml" />
+        <item itemvalue="TestNG.Tests.randomScenario" />
+        <item itemvalue="TestNG./Users/imranmoqbel/Documents/Waseet iOS Automation/Waseet iOS Automation - Intellij/smokeTest.xml" />
+        <item itemvalue="TestNG.SmokeTest2" />
+        <item itemvalue="TestNG.SmokeTest2.RandomAddToFavorites" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9378a160-4356-4dd7-822f-741e4ee7c5d2" name="Default Changelist" comment="" />
+      <created>1583835543291</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1583835543291</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/endToEndTests/endToEndScenario.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
