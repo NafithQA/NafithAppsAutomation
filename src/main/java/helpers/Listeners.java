@@ -14,13 +14,13 @@ public class Listeners implements ITestListener {
         ITestListener.super.onTestFailure(result);
 
         // Below code is to take screenshots on Failure
-        String s = result.getName(); // To know test case name and put it as the screenshot name
+/*        String s = result.getName(); // To know test case name and put it as the screenshot name
         try {
             Screenshots.getScreenshot(s);
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
-        }
+        } */
 
     }
 

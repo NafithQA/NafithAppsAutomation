@@ -9,6 +9,7 @@
 
     <test name="Android Tests" preserve-order="true">
         <classes>
+            <class name="base.AndroidConfigurations"/>
             <class name="mainTests.Tests"/>
         </classes>
     </test>

@@ -1,45 +1,46 @@
 package helpers;
 
+import com.aventstack.extentreports.AnalysisStrategy;
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+import org.testng.*;
+import org.testng.xml.XmlSuite;
+
+import java.io.File;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-import org.testng.*;
-import org.testng.xml.XmlSuite;
+// This listener class is to help in generating HTML reports
+public class ExtentReporterNG implements IReporter, ITestListener {
 
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.Status;
-import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
-
-public class ExtentReporterNG implements IReporter {
-
-    private ExtentReports extent;
-    ExtentHtmlReporter htmlReporter;
+    public ExtentReports extent;
+    ExtentSparkReporter htmlReporter;
 
     public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites, String outputDirectory) {
 
-        htmlReporter = new ExtentHtmlReporter(
-                System.getProperty("user.dir") + "/src/main/java/runReports/RunReport.html");
-//        htmlReporter.loadXMLConfig(
-//                System.getProperty("user.dir") + "/src/main/java/helpers/extent-config.xml");
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy_MM_dd_HH_mm");
+        LocalDateTime now = LocalDateTime.now();
+
+        htmlReporter = new ExtentSparkReporter(System.getProperty("user.dir") + File.separator + "test-output"
+                + File.separator + "ExtentReports" + File.separator + "NafithAutomationReport" + "_" + dtf.format(now) + ".html");
+       /* try {
+            htmlReporter.loadXMLConfig(
+                    System.getProperty("user.dir") + File.separator + "src" + File.separator + "main" + File.separator + "java" + File.separator + "org" + File.separator + "nafeth" + File.separator +
+                            "helpers" + File.separator + "extent-config.xml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        } */
 
         extent = new ExtentReports();
         extent.attachReporter(htmlReporter);
-
-
-        // ------------------------------------------------ SparkReporter ------------------------------------------------------------
-
-//        extent.setReportUsesManualConfiguration(true);
-//
-//        ExtentSparkReporter sparkReporter;
-//        sparkReporter = new ExtentSparkReporter(
-//                System.getProperty("user.dir") + "/src/main/java/runReports/iOSRunReport.html");
-//        sparkReporter.config().setTheme(com.aventstack.extentreports.reporter.configuration.Theme.DARK);
-//        sparkReporter.loadConfig("/Users/imranmoqbel/Desktop/extent-config.xml");
-//        extent.attachReporter(sparkReporter);
-
+        extent.setAnalysisStrategy(AnalysisStrategy.TEST);
+        extent.setReportUsesManualConfiguration(true);
 
         for (ISuite suite : suites) {
             Map<String, ISuiteResult> result = suite.getResults();
@@ -48,20 +49,16 @@ public class ExtentReporterNG implements IReporter {
                 ITestContext context = r.getTestContext();
 
                 buildTestNodes(context.getPassedTests(), Status.PASS);
-                buildTestNodes(context.getFailedTests(), Status.FAIL);
+                buildFailedTestNodes(context.getFailedTests(), Status.FAIL);
                 buildTestNodes(context.getSkippedTests(), Status.SKIP);
-//                buildTestNodes(context.getPassedConfigurations(), Status.PASS);
-//                buildTestNodes(context.getFailedConfigurations(), Status.FAIL);
-
             }
         }
 
         for (String s : Reporter.getOutput()) {
-            extent.setTestRunnerOutput(s);
+            extent.addTestRunnerOutput(s);
         }
 
         extent.flush();
-
     }
 
     private void buildTestNodes(IResultMap tests, Status status) {
@@ -75,19 +72,59 @@ public class ExtentReporterNG implements IReporter {
                 for (String group : result.getMethod().getGroups())
                     test.assignCategory(group);
 
-                String message = "Test " + status.toString().toLowerCase() + "ed";
-
-                if (result.getThrowable() != null)
-                    message = result.getThrowable().getMessage();
+                if (result.getThrowable() != null) {
+                    test.log(status, result.getThrowable().getMessage());
+                } else {
+                    test.log(status, "Test " + status.toString().toLowerCase() + "ed");
+                }
 
                 test.getModel().setStartTime(getTime(result.getStartMillis()));
                 test.getModel().setEndTime(getTime(result.getEndMillis()));
 
-                test.log(status, message);
             }
         }
     }
 
+    private void buildFailedTestNodes(IResultMap tests, Status status) {
+
+        ExtentTest test;
+
+        if (tests.size() > 0) {
+            for (ITestResult result : tests.getAllResults()) {
+
+                test = extent.createTest(result.getMethod().getMethodName());
+                for (String group : result.getMethod().getGroups())
+                    test.assignCategory(group);
+
+                if (result.getThrowable() != null) {
+                    // Log Failure Cause of Failed Test
+                    test.log(status, result.getThrowable().getMessage());
+                    test.log(status, result.getThrowable());
+
+                    // Get Test Name
+                /*    String videoTestName = result.getName() + ".mov";
+                    System.out.println("TEST NAME IS : " + videoTestName);
+                    File videoFileSource = new File(System.getProperty("user.dir") + File.separator + "test-output" + File.separator + "AllTestsVideos" + File.separator + videoTestName);
+                    File videoFileDestination = new File(System.getProperty("user.dir") + File.separator + "test-output" + File.separator + "FailedTestsVideos" + File.separator + videoTestName);
+
+                    try {
+                        FileUtils.copyFile(videoFileSource, videoFileDestination);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } */
+
+                    // Attach Screenshot of Failed Test
+//                    test.addScreenCaptureFromBase64String(Functions.encodeFileToBase64Binary(result), "Failure Screenshot");
+
+                } else {
+                    test.log(status, "Test " + status.toString().toLowerCase() + "ed");
+                }
+
+                test.getModel().setStartTime(getTime(result.getStartMillis()));
+                test.getModel().setEndTime(getTime(result.getEndMillis()));
+            }
+        }
+    }
 
     private Date getTime(long millis) {
         Calendar calendar = Calendar.getInstance();

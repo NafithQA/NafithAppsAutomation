@@ -1,33 +1,44 @@
 package base;
 
-import java.io.IOException;
-import java.util.concurrent.TimeUnit;
-
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
-import org.testng.annotations.AfterSuite;
+import io.appium.java_client.remote.MobileCapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.BeforeSuite;
 
-import helpers.ServerChecker;
-import org.testng.annotations.Parameters;
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+import java.time.Duration;
 
-public class AndroidConfigurations extends AndroidCapsFile {
 
+public class AndroidConfigurations {
 
-    @BeforeSuite
-//    @Parameters({"deviceName"})
-    public void configurations(String deviceName) throws IOException, InterruptedException {
+    public static AppiumDriver driver;
 
-//        ServerChecker.serverChecker();
-//        ServerChecker.service.start();
-//        new ProcessBuilder("emulator", "-avd", "" + deviceName + "").start();
+    @BeforeSuite(alwaysRun = true)
+    public static AppiumDriver capabilities() throws IOException {
 
-        AndroidDriver driver = capabilities();
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+
+//		App Path
+        File appDir = new File("src");
+        File app = new File(appDir, "nstar-debug.apk");
+
+        capabilities.setCapability("newCommandTimeout", 100000);
+        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "PixelXL");
+        capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "uiautomator2");
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
+        capabilities.setCapability("appPackage", "com.nafith.nstar.nstar");
+        capabilities.setCapability("appActivity", "MainActivity");
+        capabilities.setCapability("appWaitDuration", "20000");
+        capabilities.setCapability(MobileCapabilityType.APP, app.getAbsolutePath());
+        capabilities.setCapability(MobileCapabilityType.CLEAR_SYSTEM_FILES, true);
+        capabilities.setCapability("clearSystemFiles", true);
+
+        driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+
+        return driver;
     }
-
-//    @AfterSuite
-//    public void closeServer() {
-//
-//        ServerChecker.service.stop();
-//    }
 }

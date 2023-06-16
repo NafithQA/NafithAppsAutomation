@@ -1,18 +1,20 @@
 package mainTests;
 
-import base.AndroidCapsFile;
+import base.AndroidConfigurations;
 import org.testng.annotations.Test;
+import screensObjects.AndroidObjects;
 
-import java.lang.reflect.Method;
-
-public class Tests extends AndroidCapsFile {
-
-    String testName;
+public class Tests extends AndroidConfigurations {
 
     @Test(enabled = true)
-    public void randomScenario(Method method) {
+    public void randomScenario() throws InterruptedException {
 
-        /// For the recorder
-        testName = method.getName();
+        AndroidObjects androidObjects = new AndroidObjects(driver);
+        androidObjects.clickOnSkipButton();
+        androidObjects.clickOnArabicLanguageButton();
+        androidObjects.clickOnNextButton();
+        androidObjects.clickOnJordan_AR_Button();
+
+        Thread.sleep(5000);
     }
 }
