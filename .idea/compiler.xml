@@ -10,8 +10,5 @@
         <module name="NafithAppsAutomation" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="NafithAppsAutomation" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>
