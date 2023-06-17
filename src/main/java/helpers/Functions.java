@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.security.SecureRandom;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
@@ -105,6 +106,42 @@ public class Functions extends AndroidConfigurations {
             digits[i] = (char) (random.nextInt(10) + '0');
         }
         return Long.parseLong(new String(digits));
+    }
+
+    public String generateRandomPassword() {
+        // ASCII range – alphanumeric (0-9, a-z, A-Z)
+        final String capitalLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        final String smallLetters = "abcdefghijklmnopqrstuvwxyz";
+        final String numbers = "0123456789";
+        final String specialChars = "!@#$%^&*-_=+";
+
+        SecureRandom random = new SecureRandom();
+        StringBuilder sb = new StringBuilder();
+
+        // each iteration of the loop randomly chooses a character from the given
+        // ASCII range and appends it to the `StringBuilder` instance
+
+        for (int i = 0; i < 2; i++) {
+            int randomIndex = random.nextInt(capitalLetters.length());
+            sb.append(capitalLetters.charAt(randomIndex));
+        }
+
+        for (int i = 0; i < 2; i++) {
+            int randomIndex = random.nextInt(smallLetters.length());
+            sb.append(smallLetters.charAt(randomIndex));
+        }
+
+        for (int i = 0; i < 2; i++) {
+            int randomIndex = random.nextInt(numbers.length());
+            sb.append(numbers.charAt(randomIndex));
+        }
+
+        for (int i = 0; i < 2; i++) {
+            int randomIndex = random.nextInt(specialChars.length());
+            sb.append(specialChars.charAt(randomIndex));
+        }
+
+        return sb.toString();
     }
 
     public String generateRandomDate(String dateTime) {
