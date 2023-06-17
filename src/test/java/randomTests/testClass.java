@@ -1,6 +1,5 @@
 package randomTests;
 
-
 public class testClass {
 
     public static void main(String[] args) {
