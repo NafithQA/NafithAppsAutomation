@@ -1,8 +1,0 @@
-helpers\ExtentReporterNG.class
-base\AndroidCapsFile.class
-base\AndroidConfigurations.class
-screensObjects\IOS.class
-helpers\ServerChecker.class
-helpers\Listeners.class
-helpers\Screenshots.class
-screensObjects\Android.class

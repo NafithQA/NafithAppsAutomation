@@ -2,6 +2,9 @@ package helpers;
 
 import base.AndroidConfigurations;
 import com.google.common.base.CharMatcher;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -113,7 +116,7 @@ public class Functions extends AndroidConfigurations {
         final String capitalLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         final String smallLetters = "abcdefghijklmnopqrstuvwxyz";
         final String numbers = "0123456789";
-        final String specialChars = "!@#$%^&*-_=+";
+        final String specialChars = "!@#$%^&*-_=+<>}{!@#$%^&*()";
 
         SecureRandom random = new SecureRandom();
         StringBuilder sb = new StringBuilder();
@@ -191,8 +194,8 @@ public class Functions extends AndroidConfigurations {
         return saltStr;
     }
 
-    public String getRandomName() {
-        String RansomName = "yuioasdfghjklzxcvbnm";
+    public String getRandomNameArabic() {
+        String RansomName = "ابتثجحخدرزسشصضطظعغفقكلمنهوي";
         StringBuilder salt = new StringBuilder();
         Random rnd = new Random();
         while (salt.length() < 6) { // length of the random string.
@@ -202,6 +205,30 @@ public class Functions extends AndroidConfigurations {
         String saltStr = salt.toString();
         return saltStr;
     }
+    public String getRandomNameEnglish() {
+        String RansomName = "qwertyuiopasdfghjklzxcvbnm";
+        StringBuilder salt = new StringBuilder();
+        Random rnd = new Random();
+        while (salt.length() < 6) { // length of the random string.
+            int index = (int) (rnd.nextFloat() * RansomName.length());
+            salt.append(RansomName.charAt(index));
+        }
+        String saltStr = salt.toString();
+        return saltStr;
+    }
+
+    public String getRandomPlateCode() {
+        String RansomName = "ََQWERTYUIOPLKJHGFDSAZXCVBNM";
+        StringBuilder salt = new StringBuilder();
+        Random rnd = new Random();
+        while (salt.length() < 2) { // length of the random string.
+            int index = (int) (rnd.nextFloat() * RansomName.length());
+            salt.append(RansomName.charAt(index));
+        }
+        String saltStr = salt.toString();
+        return saltStr;
+    }
+
 
     public String getRandomInvestorName() {
         String RansomName = "qwertyuioasdf";
@@ -215,4 +242,39 @@ public class Functions extends AndroidConfigurations {
         return saltStr;
     }
 
+    public void getOtpCodeNumbers(AndroidDriver driver, String number) {
+
+        switch (number) {
+            case "0":
+                driver.pressKey(new KeyEvent(AndroidKey.DIGIT_0));
+                break;
+            case "1":
+                driver.pressKey(new KeyEvent(AndroidKey.DIGIT_1));
+                break;
+            case "2":
+                driver.pressKey(new KeyEvent(AndroidKey.DIGIT_2));
+                break;
+            case "3":
+                driver.pressKey(new KeyEvent(AndroidKey.DIGIT_3));
+                break;
+            case "4":
+                driver.pressKey(new KeyEvent(AndroidKey.DIGIT_4));
+                break;
+            case "5":
+                driver.pressKey(new KeyEvent(AndroidKey.DIGIT_5));
+                break;
+            case "6":
+                driver.pressKey(new KeyEvent(AndroidKey.DIGIT_6));
+                break;
+            case "7":
+                driver.pressKey(new KeyEvent(AndroidKey.DIGIT_7));
+                break;
+            case "8":
+                driver.pressKey(new KeyEvent(AndroidKey.DIGIT_8));
+                break;
+            case "9":
+                driver.pressKey(new KeyEvent(AndroidKey.DIGIT_9));
+
+        }
+    }
 }
