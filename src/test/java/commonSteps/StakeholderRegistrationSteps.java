@@ -165,3 +165,5 @@ public class StakeholderRegistrationSteps  extends AndroidConfigurations {
         stakeholdersRegistrationPage.clickOnLoginButton();
     }
 }
+
+
