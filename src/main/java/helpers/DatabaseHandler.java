@@ -11,14 +11,14 @@ public class DatabaseHandler {
     public static void main(String[] args) {
 
         DatabaseHandler databaseHandler = new DatabaseHandler();
-        ArrayList<String> testData = databaseHandler.getOTPFromDataBase(OtherQueries.otpNumber(String.valueOf(798855236)));
-//        System.out.println(testData.get(0));
+        ArrayList<String> testData = databaseHandler.getOTPFromDataBase(OtherQueries.otpNumber(String.valueOf(929944660)));
+        System.out.println(testData.get(0));
     }
 
     public ArrayList<String> getOTPFromDataBase(String query) {
         // Build sql server jdbc connection url use sql server account authentication.
         String host = "192.168.6.24";
-        String dbName = "NSTAR_QA";
+        String dbName = "security_master_qa";
         String connectionUserName = "QA";
         String connectionPassword = "QA@123";
 

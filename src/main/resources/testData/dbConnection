@@ -1,0 +1,4 @@
+qaHost              = 192.168.6.48
+qaUserName          = qa
+qaPassword          = QA123#
+qaDbName            = OmanTCS_AUTOMATION

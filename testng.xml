@@ -10,7 +10,8 @@
     <test name="Android Tests" preserve-order="true">
         <classes>
             <class name="base.AndroidConfigurations"/>
-            <class name="mainTests.Tests"/>
+<!--            <class name="stakeholdersRegistrationTests.StakeholdersRegistrationTests"/>-->
+             <class name="fleetRegistrationTests.TruckingCompanyFleetRegistrationTests"/>
         </classes>
     </test>
 </suite> 

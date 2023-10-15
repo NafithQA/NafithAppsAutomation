@@ -7,8 +7,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-
-import java.io.IOException;
 public class AndroidObjects {
 
     Functions functions = new Functions();
@@ -72,7 +70,7 @@ public class AndroidObjects {
     @FindBy(xpath= "//android.widget.Button[@content-desc='Register your company']")
     public WebElement registerCompanyButton;
 
-    @FindBy(xpath= "//android.view.View[@content-desc='Trucking Company']")
+    @FindBy(xpath= "//android.view.View[@content-desc='Individuals']")
     public WebElement registerTypeButton;
 
     @FindBy(xpath= "//android.view.View[@content-desc='Transportation']")

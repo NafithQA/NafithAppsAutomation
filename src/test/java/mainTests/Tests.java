@@ -8,7 +8,6 @@ import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.offset.PointOption;
 import org.testng.annotations.Test;
 import screensObjects.AndroidObjects;
-
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -23,7 +22,6 @@ public class Tests extends AndroidConfigurations {
         AndroidObjects androidObjects = new AndroidObjects(driver);
         androidObjects.clickOnAllowButton();
         androidObjects.clickOnLanguageButton();
-        androidObjects.clickOnNextButton();
         androidObjects.clickOnNextButton();
         androidObjects.clickOnJordan_Button();
         androidObjects.clickOnNextButton();
@@ -49,12 +47,15 @@ public class Tests extends AndroidConfigurations {
         androidObjects.clickOnCreateAccountButton();
         Thread.sleep(5000);
         ArrayList<String> approvalNumberList = databaseHandler.getOTPFromDataBase(OtherQueries.otpNumber(phoneNumber));
+
         String otpNumber = approvalNumberList.get(0);
 
+
+         System.out.println("otpNumber " + otpNumber);
         Thread.sleep(2000);
 
         TouchAction touchAction = new TouchAction(driver);
-        touchAction.tap(PointOption.point(167, 1364)).perform();
+        touchAction.tap(PointOption.point(167, 1454)).perform();
 
         // Creating array of string length
         String[] arr = new String[otpNumber.length()];
