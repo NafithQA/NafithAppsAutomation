@@ -29,9 +29,7 @@ public class StakeholderRegistrationSteps  extends AndroidConfigurations {
            stakeholdersRegistrationPage.clickOnNextButton();
            stakeholdersRegistrationPage.clickOnJordan_Button();
            stakeholdersRegistrationPage.clickOnNextButton();
-           stakeholdersRegistrationPage.clickOnTransportationCompanyButton();
-           stakeholdersRegistrationPage.clickOnNextButton();
-           stakeholdersRegistrationPage.clickOnNextButton();
+           stakeholdersRegistrationPage.clickOnTruckingCompanyButton();
            stakeholdersRegistrationPage.clickOnLetsStartButton();
        }
     public void navigateToLoginPage() throws IOException, InterruptedException {
@@ -131,31 +129,42 @@ public class StakeholderRegistrationSteps  extends AndroidConfigurations {
     }
     public void uploadStakeholderRegistrationAttachments() throws IOException, InterruptedException {
         StakeholdersRegistrationPage stakeholdersRegistrationPage = new StakeholdersRegistrationPage(driver);
-
+        //attachment 1
         stakeholdersRegistrationPage.clickOnaAttachment1();
         stakeholdersRegistrationPage.clickOnChooseFromGallery();
         stakeholdersRegistrationPage.clickOnChooseAttachments();
         stakeholdersRegistrationPage.clickOnNextButton();
-
+        //attachment 2
         stakeholdersRegistrationPage.clickOnaAttachment1();
         stakeholdersRegistrationPage.clickOnChooseFromGallery();
         stakeholdersRegistrationPage.clickOnChooseAttachments();
         stakeholdersRegistrationPage.clickOnNextButton();
-
+        //attachment 3
         stakeholdersRegistrationPage.clickOnaAttachment1();
         stakeholdersRegistrationPage.clickOnChooseFromGallery();
         stakeholdersRegistrationPage.clickOnChooseAttachments();
+        stakeholdersRegistrationPage.clickOnNextButton();
+        //attachment 4
+        stakeholdersRegistrationPage.clickOnaAttachment1();
+        stakeholdersRegistrationPage.clickOnChooseFromGallery();
+        stakeholdersRegistrationPage.clickOnChooseAttachments();
+        stakeholdersRegistrationPage.clickOnNextButton();
+        //attachment 5
+        stakeholdersRegistrationPage.clickOnaAttachment1();
+        stakeholdersRegistrationPage.clickOnChooseFromGallery();
+        stakeholdersRegistrationPage.clickOnChooseAttachments();
+
         stakeholdersRegistrationPage.clickOnDoneButton();
         stakeholdersRegistrationPage.clickOnRegisterCompany();
-        stakeholdersRegistrationPage.clickOnRegisterFleet();  
+        stakeholdersRegistrationPage.clickOnRegisterFleet();
     }
     public void fillInTruckingCompanyLoginInfo () throws InterruptedException, IOException {
         StakeholdersRegistrationPage stakeholdersRegistrationPage = new StakeholdersRegistrationPage(driver);
         DataLoader dataLoader = new DataLoader();
 
-        stakeholdersRegistrationPage.clickOnCountryKeyDropDownList();
-        stakeholdersRegistrationPage.clickOnJordanCountryCodeButton();
-        Thread.sleep(1000);
+
+        TouchAction touchAction = new TouchAction(driver);
+        touchAction.tap(PointOption.point(899, 1532)).perform();
         stakeholdersRegistrationPage.clickOnPhoneNumberField();
         stakeholdersRegistrationPage.fillInPhoneNumberField().sendKeys(dataLoader.credentialsData("truckingCompanyUser"));
 

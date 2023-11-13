@@ -8,7 +8,6 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.support.PageFactory;
 import pageModels.FleetRegistrationPage;
-import pageModels.StakeholdersRegistrationPage;
 
 import java.io.IOException;
 
@@ -25,12 +24,12 @@ public class FleetRegistrationSteps  extends AndroidConfigurations {
     public void navigateToTruckRegistrationPage() throws IOException, InterruptedException {
         FleetRegistrationPage fleetRegistrationPage = new FleetRegistrationPage(driver);
         TouchAction touchAction = new TouchAction(driver);
-
+        Functions functions = new Functions();
         fleetRegistrationPage.clickOnAddTruckButton();
         fleetRegistrationPage.clickOnTruckButton();
         fleetRegistrationPage.clickOnVehicleNationalityDropDownList();
         fleetRegistrationPage.clickOnJordanCountryCodeButton();
-        touchAction.tap(PointOption.point(411, 1205)).perform();
+        touchAction.tap(PointOption.point(156, 1000)).perform();
         fleetRegistrationPage.clickOnDatePicker();
         fleetRegistrationPage.clickOnChooseDateButton();
         fleetRegistrationPage.clickOnNextButton();

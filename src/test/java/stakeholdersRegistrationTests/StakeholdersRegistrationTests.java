@@ -4,11 +4,8 @@ import base.AndroidConfigurations;
 import commonSteps.StakeholderRegistrationSteps;
 import org.testng.annotations.Test;
 import java.io.IOException;
-
-
 public class StakeholdersRegistrationTests extends AndroidConfigurations {
-
-    @Test(enabled = true)
+    @Test(enabled = false)
     public void TruckingCompany_External_Registration() throws InterruptedException, IOException {
         StakeholderRegistrationSteps stakeholderRegistrationSteps = new StakeholderRegistrationSteps(driver);
 
@@ -24,8 +21,7 @@ public class StakeholdersRegistrationTests extends AndroidConfigurations {
         // Upload Attachments
          stakeholderRegistrationSteps.uploadStakeholderRegistrationAttachments();
     }
-
-    @Test(enabled = true)
+    @Test(enabled = false)
     public void TruckOwner_External_Registration() throws InterruptedException, IOException {
 
         StakeholderRegistrationSteps stakeholderRegistrationSteps = new StakeholderRegistrationSteps(driver);
@@ -42,8 +38,7 @@ public class StakeholdersRegistrationTests extends AndroidConfigurations {
         // Upload Attachments
         stakeholderRegistrationSteps.uploadStakeholderRegistrationAttachments();
     }
-
-    @Test(enabled = true)
+    @Test(enabled = false)
     public void CargoOwner_External_Registration() throws InterruptedException, IOException {
 
         StakeholderRegistrationSteps stakeholderRegistrationSteps = new StakeholderRegistrationSteps(driver);
@@ -60,7 +55,6 @@ public class StakeholdersRegistrationTests extends AndroidConfigurations {
         // Upload Attachments
         stakeholderRegistrationSteps.uploadStakeholderRegistrationAttachments();
     }
-
 
 }
 

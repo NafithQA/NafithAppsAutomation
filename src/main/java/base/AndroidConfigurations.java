@@ -24,7 +24,7 @@ public class AndroidConfigurations {
 
 //		App Path
         File appDir = new File("src");
-        File app = new File(appDir, "app.apk");
+        File app = new File(appDir, "NewNstar.apk");
 
         capabilities.setCapability("newCommandTimeout", 100000);
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Pixel_XL");
