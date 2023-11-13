@@ -2,33 +2,31 @@ package pageModels;
 
 import helpers.Functions;
 import io.appium.java_client.android.AndroidDriver;
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
 public class FleetRegistrationPage {
     Functions functions = new Functions();
     public FleetRegistrationPage(AndroidDriver driver) {PageFactory.initElements(driver, this);}
 
     @FindBy(xpath=  "//android.widget.Button[@content-desc='Fleet Management']")
     public WebElement fleetManagementButton;
-    @FindBy(xpath= "(//android.widget.ImageView)[1]")
+    @FindBy(xpath= "//android.widget.Button[@content-desc='Add Truck']")
     public WebElement truckButton;
-    @FindBy(xpath=  "//android.widget.Button[@content-desc='Add Truck']")
+    @FindBy(xpath=  "(//android.widget.ImageView)[1]")
     public WebElement addTruckButton;
     @FindBy(xpath= "//android.widget.ImageView")
     public WebElement vehicleNationalityDropDownList;
-
     @FindBy(xpath= "(//android.view.View)[50]")
     public WebElement datePicker;
-
     @FindBy(xpath= "//android.widget.Button[@content-desc='Choose']")
     public WebElement chooseDateButton;
-    @FindBy(xpath = "(//android.view.View)[7]")
+    @FindBy(xpath = "//android.view.View[@content-desc='Jordan']")
     public WebElement jordanCountryCodeButton;
     @FindBy(xpath = "//android.widget.Button[@content-desc='Next']")
     public WebElement nextButton;
-    @FindBy(xpath= "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View[4]/android.view.View/android.view.View/android.widget.ScrollView/android.widget.EditText[1]")
+    @FindBy(xpath= "(//android.widget.EditText)[1]")
     public WebElement plateNumberField;
     @FindBy(xpath= "(//android.widget.EditText)[2]")
     public WebElement fleetPlateCodeField;
@@ -36,17 +34,16 @@ public class FleetRegistrationPage {
     public WebElement usageField;
     @FindBy(xpath= "(//android.view.View)[6]")
     public WebElement chooseUsageField;
-    @FindBy(xpath= "(//android.view.View)[22]")
+    @FindBy(xpath= "//android.view.View[@content-desc=\"Heavy Truck\"]")
     public WebElement vehicleClassButton;
     @FindBy(xpath= "(//android.widget.EditText)[3]")
     public WebElement vehicleMaxLoad;
-    @FindBy(xpath= "(//android.widget.EditText)[1]")
-    public WebElement vehicleMaxLoadField;
+
     @FindBy(xpath= "(//android.widget.EditText)[4]")
     public WebElement numberOfAxles;
     @FindBy(xpath= "(//android.widget.EditText)[2]")
     public WebElement numberOfAxlesField;
-    @FindBy(xpath= "(//android.view.View)[26]")
+    @FindBy(xpath= "(//android.view.View)[22]")
     public WebElement yearField;
     @FindBy(xpath= "//android.widget.Button")
     public WebElement yearPickerField;
@@ -122,8 +119,8 @@ public class FleetRegistrationPage {
     }
 
     public void fillInVehicleMaxLoadField(String VehicleMaxLoad) {
-        functions.waitForElementToBeVisible(vehicleMaxLoadField);
-        vehicleMaxLoadField.sendKeys(VehicleMaxLoad);
+        functions.waitForElementToBeVisible(vehicleMaxLoad);
+        vehicleMaxLoad.sendKeys(VehicleMaxLoad);
     }
     public void clickOnNumberOfAxlesField(){
         functions.waitForElementToBeVisible(numberOfAxles);

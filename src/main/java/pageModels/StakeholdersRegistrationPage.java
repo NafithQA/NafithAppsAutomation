@@ -19,8 +19,8 @@ public class StakeholdersRegistrationPage {
     @FindBy(xpath = "//android.widget.ImageView[@content-desc='Jordan']")
     public WebElement jordan_Button;
 
-    @FindBy(xpath = "//android.widget.ImageView[@content-desc='Trucking Company']")
-    public WebElement transportationCompanyButton;
+    @FindBy(xpath = "//android.widget.ImageView[@content-desc='Trucking Services']")
+    public WebElement truckingCompanyButton;
 
     @FindBy(xpath = "//android.widget.Button[@content-desc=\"Let's Start\"]")
     public WebElement letsStartButton;
@@ -28,9 +28,9 @@ public class StakeholdersRegistrationPage {
     @FindBy(xpath = "//android.widget.Button[@content-desc='Register Now']")
     public WebElement subscribeNowButton;
 
-    @FindBy(xpath = "//android.view.View[@content-desc=\"OMN(+968)\"]")
+    @FindBy(xpath = "//android.view.View[@content-desc='JO(+962)']")
     public WebElement countryKeyDropDownList;
-    @FindBy(xpath = "(//android.view.View)[7]")
+    @FindBy(xpath = "//android.widget.ImageView[@content-desc='OMN(+968)']")
     public WebElement jordanCountryCodeButton;
     @FindBy(xpath = "(//android.widget.ImageView)[1]")
     public WebElement phoneNumberField;
@@ -66,9 +66,9 @@ public class StakeholdersRegistrationPage {
     public WebElement chooseAttachments;
     @FindBy(xpath= "//android.widget.Button[@content-desc='Done']")
     public WebElement doneButton;
-    @FindBy(xpath= "//android.widget.Button[@content-desc='Register Company']")
+    @FindBy(xpath= "//android.widget.Button[@content-desc='Truck Registration']")
     public WebElement registerCompany;
-    @FindBy(xpath= "//android.widget.Button[@content-desc='Register your fleet']")
+    @FindBy(xpath= "//android.widget.Button[@content-desc='Truck management']")
     public WebElement registerFleet;
     @FindBy(xpath= "//android.widget.ImageView[@content-desc='Account']")
     public WebElement accountButton;
@@ -98,9 +98,9 @@ public class StakeholdersRegistrationPage {
         functions.waitForElementToBeVisible(jordan_Button);
         jordan_Button.click();
     }
-    public void clickOnTransportationCompanyButton() {
-        functions.waitForElementToBeVisible(transportationCompanyButton);
-        transportationCompanyButton.click();
+    public void clickOnTruckingCompanyButton() {
+        functions.waitForElementToBeVisible(truckingCompanyButton);
+        truckingCompanyButton.click();
     }
     public void clickOnLetsStartButton() throws InterruptedException {
         functions.waitForElementToBeVisible(letsStartButton);
@@ -214,7 +214,7 @@ public class StakeholdersRegistrationPage {
         chooseAttachments.click();
     }
     public void clickOnDoneButton() throws InterruptedException {
-        Thread.sleep(2000);
+//        Thread.sleep(2000);
         functions.waitForElementToBeVisible(doneButton);
         doneButton.click();
     }
