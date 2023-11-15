@@ -14,8 +14,16 @@ public class FleetRegistrationPage {
     public WebElement fleetManagementButton;
     @FindBy(xpath= "//android.widget.Button[@content-desc='Add Truck']")
     public WebElement truckButton;
+    @FindBy(xpath= "//android.widget.Button[@content-desc='Add Trailer']")
+    public WebElement trailerButton;
+    @FindBy(xpath= "//android.widget.Button[@content-desc='Add Equipment']")
+    public WebElement equipmentButton;
     @FindBy(xpath=  "(//android.widget.ImageView)[1]")
     public WebElement addTruckButton;
+    @FindBy(xpath=  "(//android.widget.ImageView)[2]")
+    public WebElement addTrailerButton;
+    @FindBy(xpath=  "(//android.widget.ImageView)[3]")
+    public WebElement addEquipmentButton;
     @FindBy(xpath= "//android.widget.ImageView")
     public WebElement vehicleNationalityDropDownList;
     @FindBy(xpath= "(//android.view.View)[50]")
@@ -38,7 +46,6 @@ public class FleetRegistrationPage {
     public WebElement vehicleClassButton;
     @FindBy(xpath= "(//android.widget.EditText)[3]")
     public WebElement vehicleMaxLoad;
-
     @FindBy(xpath= "(//android.widget.EditText)[4]")
     public WebElement numberOfAxles;
     @FindBy(xpath= "(//android.widget.EditText)[2]")
@@ -47,8 +54,23 @@ public class FleetRegistrationPage {
     public WebElement yearField;
     @FindBy(xpath= "//android.widget.Button")
     public WebElement yearPickerField;
+    @FindBy(xpath= "//android.widget.Button[@content-desc='Truck Registration']")
+    public WebElement registerTruck;
+    @FindBy(xpath= "//android.widget.Button[@content-desc='Trailer Registration']")
+    public WebElement registerTrailer;
+    @FindBy(xpath= "//android.widget.Button[@content-desc='Equipment registration']")
+    public WebElement registerEquipment;
+    @FindBy(xpath= "//android.widget.Button[@content-desc='Truck management']")
+    public WebElement truckManagementButton;
+    @FindBy(xpath= " //android.widget.Button[@content-desc='Trailer management']")
+    public WebElement trailerManagementButton;
+    @FindBy(xpath= " //android.widget.Button[@content-desc='Equipment management']")
+    public WebElement equipmentManagementButton;
+    @FindBy(xpath=  "//android.widget.Button")
+    public WebElement closeButton;
 
-    public void clickOnFleetManagement() {
+    public void clickOnFleetManagement() throws InterruptedException {
+        Thread.sleep(1000);
         functions.waitForElementToBeVisible(fleetManagementButton);
         fleetManagementButton.click();
     }
@@ -56,9 +78,25 @@ public class FleetRegistrationPage {
         functions.waitForElementToBeVisible(truckButton);
         truckButton.click();
     }
+    public void clickOnTrailerButton() {
+        functions.waitForElementToBeVisible(trailerButton);
+        trailerButton.click();
+    }
+    public void clickOnEquipmentButton() {
+        functions.waitForElementToBeVisible(equipmentButton);
+        equipmentButton.click();
+    }
     public void clickOnAddTruckButton() {
         functions.waitForElementToBeVisible(addTruckButton);
         addTruckButton.click();
+    }
+    public void clickOnAddTrailerButton() {
+        functions.waitForElementToBeVisible(addTrailerButton);
+        addTrailerButton.click();
+    }
+    public void clickOnAddEquipmentButton() {
+        functions.waitForElementToBeVisible(addEquipmentButton);
+        addEquipmentButton.click();
     }
     public void clickOnVehicleNationalityDropDownList() {
         functions.waitForElementToBeVisible(vehicleNationalityDropDownList);
@@ -126,7 +164,6 @@ public class FleetRegistrationPage {
         functions.waitForElementToBeVisible(numberOfAxles);
         numberOfAxles.click();
     }
-
     public void fillInNumberOfAxlesField(String VehicleMaxLoad) {
         functions.waitForElementToBeVisible(numberOfAxlesField);
         numberOfAxlesField.sendKeys(VehicleMaxLoad);
@@ -141,6 +178,34 @@ public class FleetRegistrationPage {
         yearPickerField.click();
     }
 
+    public void clickOnTruckRegistration() {
+        functions.waitForElementToBeVisible(registerTruck);
+        registerTruck.click();
+    }
+    public void clickOnTrailerRegistration() {
+        functions.waitForElementToBeVisible(registerTrailer);
+        registerTrailer.click();
+    }
+    public void clickOnEquipmentRegistration() {
+        functions.waitForElementToBeVisible(registerEquipment);
+        registerEquipment.click();
+    }
+    public void clickOnTruckManagement()   {
+        functions.waitForElementToBeVisible(truckManagementButton);
+        truckManagementButton.click();
+    }
+    public void clickOnTrailerManagement()   {
+        functions.waitForElementToBeVisible(trailerManagementButton);
+        trailerManagementButton.click();
+    }
+    public void clickOnEquipmentManagement()   {
+        functions.waitForElementToBeVisible(equipmentManagementButton);
+        equipmentManagementButton.click();
+    }
+    public void clickOnCloseButton() {
+        functions.waitForElementToBeVisible(closeButton);
+        closeButton.click();
+    }
 
 
 }

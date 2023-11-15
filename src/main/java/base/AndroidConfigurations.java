@@ -27,8 +27,8 @@ public class AndroidConfigurations {
         File app = new File(appDir, "NewNstar.apk");
 
         capabilities.setCapability("newCommandTimeout", 100000);
-        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Pixel_XL");
-       // capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "samsung SM-A325F");
+//       capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Pixel_XL");
+         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "SM_A217F");
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "uiautomator2");
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
         capabilities.setCapability("appPackage", "com.nafith.nstar.nstar");

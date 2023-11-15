@@ -16,17 +16,33 @@ public class FleetRegistrationSteps  extends AndroidConfigurations {
         PageFactory.initElements(driver, this);}
     DatabaseHandler databaseHandler = new DatabaseHandler();
     Functions functions = new Functions();
-    public void navigateToFleetRegistrationPage()  {
+    public void navigateToFleetTruckRegistrationPage() throws IOException, InterruptedException {
         FleetRegistrationPage fleetRegistrationPage = new FleetRegistrationPage(driver);
 
         fleetRegistrationPage.clickOnFleetManagement();
+        fleetRegistrationPage.clickOnAddTruckButton();
+        fleetRegistrationPage.clickOnTruckButton();
     }
-    public void navigateToTruckRegistrationPage() throws IOException, InterruptedException {
+
+    public void navigateToFleetTrailersRegistrationPage() throws IOException, InterruptedException {
+        FleetRegistrationPage fleetRegistrationPage = new FleetRegistrationPage(driver);
+
+        fleetRegistrationPage.clickOnFleetManagement();
+        fleetRegistrationPage.clickOnAddTrailerButton();
+        fleetRegistrationPage.clickOnTrailerButton();
+    }
+    public void navigateToFleetEquipmentRegistrationPage() throws IOException, InterruptedException {
+        FleetRegistrationPage fleetRegistrationPage = new FleetRegistrationPage(driver);
+
+        fleetRegistrationPage.clickOnFleetManagement();
+        fleetRegistrationPage.clickOnAddEquipmentButton();
+        fleetRegistrationPage.clickOnEquipmentButton();
+    }
+    public void navigateToFleetRegistrationPage() throws IOException, InterruptedException {
         FleetRegistrationPage fleetRegistrationPage = new FleetRegistrationPage(driver);
         TouchAction touchAction = new TouchAction(driver);
         Functions functions = new Functions();
-        fleetRegistrationPage.clickOnAddTruckButton();
-        fleetRegistrationPage.clickOnTruckButton();
+
         fleetRegistrationPage.clickOnVehicleNationalityDropDownList();
         fleetRegistrationPage.clickOnJordanCountryCodeButton();
         touchAction.tap(PointOption.point(156, 1000)).perform();
@@ -56,40 +72,32 @@ public class FleetRegistrationSteps  extends AndroidConfigurations {
         fleetRegistrationPage.clickOnNextButton();
     }
 
-    public void navigateToTrailerRegistrationPage() throws IOException, InterruptedException {
+    public void navigateCompleteTruckRegistrationPage() throws IOException, InterruptedException {
         FleetRegistrationPage fleetRegistrationPage = new FleetRegistrationPage(driver);
         TouchAction touchAction = new TouchAction(driver);
 
-        fleetRegistrationPage.clickOnAddTruckButton();
-        fleetRegistrationPage.clickOnTruckButton();
-        fleetRegistrationPage.clickOnVehicleNationalityDropDownList();
-        fleetRegistrationPage.clickOnJordanCountryCodeButton();
-        touchAction.tap(PointOption.point(411, 1205)).perform();
-        fleetRegistrationPage.clickOnDatePicker();
-        fleetRegistrationPage.clickOnChooseDateButton();
-        fleetRegistrationPage.clickOnNextButton();
-        fleetRegistrationPage.clickOnPlateNumberField();
-        String PlateNumber = String.valueOf(functions.generateRandomNumber(6));
-        fleetRegistrationPage.fillInPlateNumberField(PlateNumber);
-        fleetRegistrationPage.clickOnFleetPlateCodeField();
-        String PlateCode = String.valueOf(functions.getRandomPlateCode());
-        fleetRegistrationPage.fillInFleetPlateCodeField(PlateCode);
-        driver.navigate().back();
-        fleetRegistrationPage.clickOnUsageDropDownList();
-        fleetRegistrationPage.clickOnChooseUsageField();
-        fleetRegistrationPage.clickOnVehicleClassButton();
-        fleetRegistrationPage.clickOnVehicleMaxLoadField();
-        String VehicleMaxLoad = String.valueOf(functions.generateRandomNumber(6));
-        fleetRegistrationPage.fillInVehicleMaxLoadField(VehicleMaxLoad);
-        driver.navigate().back();
-        fleetRegistrationPage.clickOnNumberOfAxlesField();
-        String NumberOfAxles = String.valueOf(functions.generateRandomNumber(1));
-        fleetRegistrationPage.fillInNumberOfAxlesField(NumberOfAxles);
-        driver.navigate().back();
-        fleetRegistrationPage.clickOnYearField();
-        fleetRegistrationPage.clickOnYearPicker();
-        fleetRegistrationPage.clickOnNextButton();
+        fleetRegistrationPage.clickOnTruckRegistration();
+        fleetRegistrationPage.clickOnTruckManagement();
+        fleetRegistrationPage.clickOnCloseButton();
+        touchAction.tap(PointOption.point(77, 181)).perform();
     }
+    public void navigateCompleteTrailerRegistrationPage() throws IOException, InterruptedException {
+        FleetRegistrationPage fleetRegistrationPage = new FleetRegistrationPage(driver);
+        TouchAction touchAction = new TouchAction(driver);
 
+        fleetRegistrationPage.clickOnTrailerRegistration();
+        fleetRegistrationPage.clickOnTrailerManagement();
+        fleetRegistrationPage.clickOnCloseButton();
+        touchAction.tap(PointOption.point(77, 181)).perform();
+    }
+    public void navigateCompleteEquipmentRegistrationPage() throws IOException, InterruptedException {
+        FleetRegistrationPage fleetRegistrationPage = new FleetRegistrationPage(driver);
+        TouchAction touchAction = new TouchAction(driver);
+
+        fleetRegistrationPage.clickOnEquipmentRegistration();
+        fleetRegistrationPage.clickOnEquipmentManagement();
+        fleetRegistrationPage.clickOnCloseButton();
+        touchAction.tap(PointOption.point(77, 181)).perform();
+    }
 }
 
