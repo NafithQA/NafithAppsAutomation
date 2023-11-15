@@ -25,7 +25,6 @@ public class StakeholderRegistrationSteps  extends AndroidConfigurations {
            StakeholdersRegistrationPage stakeholdersRegistrationPage = new StakeholdersRegistrationPage(driver);
 
            stakeholdersRegistrationPage.clickOnAllowButton();
-           stakeholdersRegistrationPage.clickOnLanguageButton();
            stakeholdersRegistrationPage.clickOnNextButton();
            stakeholdersRegistrationPage.clickOnJordan_Button();
            stakeholdersRegistrationPage.clickOnNextButton();
@@ -40,58 +39,60 @@ public class StakeholderRegistrationSteps  extends AndroidConfigurations {
 
     }
     public void fillInTruckingCompanyRegistrationButton() throws IOException, InterruptedException {
-            StakeholdersRegistrationPage stakeholdersRegistrationPage = new StakeholdersRegistrationPage(driver);
+        StakeholdersRegistrationPage stakeholdersRegistrationPage = new StakeholdersRegistrationPage(driver);
+        DatabaseHandler databaseHandler = new DatabaseHandler();
+        Functions functions = new Functions();
 
-            stakeholdersRegistrationPage.clickOnSubscribeNowButton();
-            stakeholdersRegistrationPage.clickOnCountryKeyDropDownList();
-            stakeholdersRegistrationPage.clickOnJordanCountryCodeButton();
-            Thread.sleep(1000);
-            stakeholdersRegistrationPage.clickOnPhoneNumberField();
-            String phoneNumber = String.valueOf(functions.generateRandomNumber(9));
-            System.out.println("Phone number " + phoneNumber);
-            stakeholdersRegistrationPage.fillInPhoneNumberField().sendKeys(phoneNumber);
+        stakeholdersRegistrationPage.clickOnSubscribeNowButton();
+        stakeholdersRegistrationPage.clickOnCountryKeyDropDownList();
+        stakeholdersRegistrationPage.clickOnJordanCountryCodeButton();
+        Thread.sleep(1000);
+        stakeholdersRegistrationPage.clickOnPhoneNumberField();
+        String phoneNumber = String.valueOf(functions.generateRandomNumber(9));
+        System.out.println("Phone number " + phoneNumber);
+        stakeholdersRegistrationPage.fillInPhoneNumberField().sendKeys(phoneNumber);
 
-            stakeholdersRegistrationPage.clickOnPasswordField();
-            String password = functions.generateRandomPassword();
-            System.out.println("Password " + password);
-            stakeholdersRegistrationPage.fillInPasswordField(password);
+        stakeholdersRegistrationPage.clickOnPasswordField();
+        String password = functions.generateRandomPassword();
+        System.out.println("Password " + password);
+        stakeholdersRegistrationPage.fillInPasswordField(password);
 
-            driver.navigate().back();
-            stakeholdersRegistrationPage.clickOnCreateAccountButton();
-            Thread.sleep(5000);
-            ArrayList<String> approvalNumberList = databaseHandler.getOTPFromDataBase(OtherQueries.otpNumber(phoneNumber));
+        driver.navigate().back();
+        stakeholdersRegistrationPage.clickOnCreateAccountButton();
+        Thread.sleep(5000);
+        ArrayList<String> approvalNumberList = databaseHandler.getOTPFromDataBase(OtherQueries.otpNumber(phoneNumber));
 
-            String otpNumber = approvalNumberList.get(0);
+        String otpNumber = approvalNumberList.get(0);
 
 
-            System.out.println("otpNumber " + otpNumber);
-            Thread.sleep(2000);
+        System.out.println("otpNumber " + otpNumber);
+        Thread.sleep(2000);
 
-            TouchAction touchAction = new TouchAction(driver);
-            touchAction.tap(PointOption.point(167, 1454)).perform();
+        TouchAction touchAction = new TouchAction(driver);
+        touchAction.tap(PointOption.point(113, 1463)).perform();
 
-            // Creating array of string length
-            String[] arr = new String[otpNumber.length()];
+        // Creating array of string length
+        String[] arr = new String[otpNumber.length()];
 
-            // Copy character by character into array
-            for (int i = 0; i < otpNumber.length(); i++) {
-                arr[i] = String.valueOf(otpNumber.charAt(i));
-            }
+        // Copy character by character into array
+        for (int i = 0; i < otpNumber.length(); i++) {
+            arr[i] = String.valueOf(otpNumber.charAt(i));
+        }
 
-            for (int i = 0; i < otpNumber.length(); i++) {
-                functions.getOtpCodeNumbers(driver, arr[i]);
-            }
-            Thread.sleep(5000);
+        for (int i = 0; i < otpNumber.length(); i++) {
+            functions.getOtpCodeNumbers(driver, arr[i]);
+        }
+        Thread.sleep(5000);
     }
     public void fillInTruckingCompanyRegistrationInfo() throws IOException, InterruptedException{
         StakeholdersRegistrationPage stakeholdersRegistrationPage = new StakeholdersRegistrationPage(driver);
+
             stakeholdersRegistrationPage.clickOnRegisterCompanyButton();
             stakeholdersRegistrationPage.clickOnRegistrationTypeButton();
             stakeholdersRegistrationPage.clickOnBusinessTypeButton();
             stakeholdersRegistrationPage.clickOnCommercialNameArabic();
-
             String commercialNameAr = String.valueOf("الإسم بالعربي أتوميشن " + functions.getRandomNameArabic());
-            stakeholdersRegistrationPage.fillInCommercialNameArField(commercialNameAr);
+            //stakeholdersRegistrationPage.fillInCommercialNameArField(commercialNameAr);
             driver.navigate().back();
             stakeholdersRegistrationPage.clickOnCommercialNameEnglish();
             String commercialNameEn = String.valueOf(" Commercial Name Auto En " + functions.getRandomNameEnglish());
@@ -155,8 +156,7 @@ public class StakeholderRegistrationSteps  extends AndroidConfigurations {
         stakeholdersRegistrationPage.clickOnChooseAttachments();
 
         stakeholdersRegistrationPage.clickOnDoneButton();
-        stakeholdersRegistrationPage.clickOnRegisterCompany();
-        stakeholdersRegistrationPage.clickOnRegisterFleet();
+
     }
     public void fillInTruckingCompanyLoginInfo () throws InterruptedException, IOException {
         StakeholdersRegistrationPage stakeholdersRegistrationPage = new StakeholdersRegistrationPage(driver);
@@ -173,6 +173,7 @@ public class StakeholderRegistrationSteps  extends AndroidConfigurations {
         driver.navigate().back();
         stakeholdersRegistrationPage.clickOnLoginButton();
     }
+
 }
 
 

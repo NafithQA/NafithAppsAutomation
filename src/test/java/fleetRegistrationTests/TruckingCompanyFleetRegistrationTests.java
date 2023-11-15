@@ -3,16 +3,14 @@ package fleetRegistrationTests;
 import base.AndroidConfigurations;
 import commonSteps.FleetRegistrationSteps;
 import commonSteps.StakeholderRegistrationSteps;
-import helpers.DataLoader;
 import org.testng.annotations.Test;
 import pageModels.StakeholdersRegistrationPage;
 
 import java.io.IOException;
 public class TruckingCompanyFleetRegistrationTests extends AndroidConfigurations {
-
     @Test(enabled = true)
     public void TruckingCompany_Login() throws IOException, InterruptedException {
-        StakeholderRegistrationSteps stakeholderRegistrationSteps = new StakeholderRegistrationSteps(driver); 
+        StakeholderRegistrationSteps stakeholderRegistrationSteps = new StakeholderRegistrationSteps(driver);
 
         // navigate to splash screens Pages
         stakeholderRegistrationSteps.navigateToRegistrationPage();
@@ -24,38 +22,57 @@ public class TruckingCompanyFleetRegistrationTests extends AndroidConfigurations
         stakeholderRegistrationSteps.fillInTruckingCompanyLoginInfo();
     }
     @Test(enabled = true)
-    public void Trucks_TruckingCompany_Registration() throws IOException, InterruptedException {
+    public void TruckingCompany_Registration_Truck() throws IOException, InterruptedException {
         FleetRegistrationSteps fleetRegistrationSteps = new FleetRegistrationSteps(driver);
         StakeholderRegistrationSteps stakeholderRegistrationSteps = new StakeholderRegistrationSteps(driver);
 
         //Navigate to Fleet Registration Page
-        fleetRegistrationSteps.navigateToFleetRegistrationPage();
+        fleetRegistrationSteps.navigateToFleetTruckRegistrationPage();
 
-        // Navigate to Trucks Registration Page
-        fleetRegistrationSteps.navigateToTruckRegistrationPage();
+        // Navigate to Fill-in Truck Registration info Page
+        fleetRegistrationSteps.navigateToFleetRegistrationPage();
 
         //  Upload Attachments
-       stakeholderRegistrationSteps.uploadStakeholderRegistrationAttachments();
-    }
+        stakeholderRegistrationSteps.uploadStakeholderRegistrationAttachments();
 
-    @Test(enabled = false)
-    public void Trailers_TruckingCompany_Registration() throws IOException, InterruptedException {
+        // Navigate to Truck Complete registration Steps
+        fleetRegistrationSteps.navigateCompleteTruckRegistrationPage();
+    }
+    @Test(enabled = true)
+    public void TruckingCompany_Registration_Trailer() throws IOException, InterruptedException {
         FleetRegistrationSteps fleetRegistrationSteps = new FleetRegistrationSteps(driver);
         StakeholderRegistrationSteps stakeholderRegistrationSteps = new StakeholderRegistrationSteps(driver);
+        StakeholdersRegistrationPage stakeholdersRegistrationPage = new StakeholdersRegistrationPage(driver);
 
         //Navigate to Fleet Registration Page
+        fleetRegistrationSteps.navigateToFleetTrailersRegistrationPage();
+
+        // Navigate to Fill-in Trailer Registration info Page
         fleetRegistrationSteps.navigateToFleetRegistrationPage();
 
-        // Navigate to Trucks Registration Page
-        fleetRegistrationSteps.navigateToTruckRegistrationPage();
-
-        // Upload Attachments
+        //  Upload Attachments
         stakeholderRegistrationSteps.uploadStakeholderRegistrationAttachments();
+
+        // Navigate to Trailer Complete registration Steps
+        fleetRegistrationSteps.navigateCompleteTrailerRegistrationPage();
     }
+    @Test(enabled = true)
+    public void TruckingCompany_Registration_Equipment() throws IOException, InterruptedException {
+        FleetRegistrationSteps fleetRegistrationSteps = new FleetRegistrationSteps(driver);
+        StakeholderRegistrationSteps stakeholderRegistrationSteps = new StakeholderRegistrationSteps(driver);
+        StakeholdersRegistrationPage stakeholdersRegistrationPage = new StakeholdersRegistrationPage(driver);
 
-    @Test(enabled = false)
-    public void Equipments_TruckingCompany_Registration() throws IOException, InterruptedException {
+        //Navigate to Fleet Registration Page
+        fleetRegistrationSteps.navigateToFleetEquipmentRegistrationPage();
 
-   }
+        // Navigate to Fill-in Equipment Registration info Page
+        fleetRegistrationSteps.navigateToFleetRegistrationPage();
+
+        //  Upload Attachments
+        stakeholderRegistrationSteps.uploadStakeholderRegistrationAttachments();
+
+        // Navigate to Trailer Complete registration Steps
+        fleetRegistrationSteps.navigateCompleteEquipmentRegistrationPage();
+    }
 
 }

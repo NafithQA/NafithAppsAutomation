@@ -34,17 +34,17 @@ public class StakeholdersRegistrationPage {
     public WebElement jordanCountryCodeButton;
     @FindBy(xpath = "(//android.widget.ImageView)[1]")
     public WebElement phoneNumberField;
-    @FindBy(xpath= "//android.widget.EditText")
+    @FindBy(xpath= "(//android.widget.EditText)[2]")
     public WebElement passwordField;
     @FindBy(xpath = "(//android.widget.Button)[2]")
     public WebElement createAccountButton;
-    @FindBy(xpath= "//android.widget.Button[@content-desc='Register your company']")
+    @FindBy(xpath= "//android.widget.Button[@content-desc='Register Your Activity']")
     public WebElement registerCompanyButton;
     @FindBy(xpath= "//android.view.View[@content-desc='Individuals']")
     public WebElement registerTypeButton;
     @FindBy(xpath= "//android.view.View[@content-desc='Transportation']")
     public WebElement businessTypeButton;
-    @FindBy(xpath= "(//android.widget.EditText)[1]")
+    @FindBy(className= "(//android.widget.EditText)[1]")
     public WebElement commercialNameAR;
     @FindBy(xpath= "(//android.widget.EditText)[2]")
     public WebElement commercialNameEn;
@@ -66,29 +66,18 @@ public class StakeholdersRegistrationPage {
     public WebElement chooseAttachments;
     @FindBy(xpath= "//android.widget.Button[@content-desc='Done']")
     public WebElement doneButton;
-    @FindBy(xpath= "//android.widget.Button[@content-desc='Truck Registration']")
-    public WebElement registerCompany;
-    @FindBy(xpath= "//android.widget.Button[@content-desc='Truck management']")
-    public WebElement registerFleet;
     @FindBy(xpath= "//android.widget.ImageView[@content-desc='Account']")
     public WebElement accountButton;
     @FindBy(xpath=  "//android.widget.ImageView[@content-desc='Login']")
     public WebElement loginPage;
-    @FindBy(xpath=  "//android.widget.EditText[2]")
+    @FindBy(xpath=  "(//android.widget.EditText)[2]")
     public WebElement loginPasswordField;
     @FindBy(xpath=  "//android.widget.Button[@content-desc='Login']")
     public WebElement loginButton;
-
-
     public void clickOnAllowButton() {
         functions.waitForElementToBeVisible(allowButton);
         allowButton.click();
     }
-    public void clickOnLanguageButton() {
-        functions.waitForElementToBeVisible(LanguageButton);
-        LanguageButton.click();
-    }
-
     public void clickOnNextButton() throws InterruptedException {
         Thread.sleep(1000);
         functions.waitForElementToBeVisible(nextButton);
@@ -138,7 +127,6 @@ public class StakeholdersRegistrationPage {
         functions.waitForElementToBeVisible(createAccountButton);
         createAccountButton.click();
     }
-
     public void clickOnRegisterCompanyButton() {
         functions.waitForElementToBeVisible(registerCompanyButton);
         registerCompanyButton.click();
@@ -151,7 +139,8 @@ public class StakeholdersRegistrationPage {
         functions.waitForElementToBeVisible(businessTypeButton);
         businessTypeButton.click();
     }
-    public void clickOnCommercialNameArabic() {
+
+    public void clickOnCommercialNameArabic(){
         functions.waitForElementToBeVisible(commercialNameAR);
         commercialNameAR.click();
     }
@@ -159,7 +148,6 @@ public class StakeholdersRegistrationPage {
         functions.waitForElementToBeVisible(commercialNameAR);
         commercialNameAR.sendKeys(commercialNameAr);
     }
-
     public void clickOnCommercialNameEnglish() {
         functions.waitForElementToBeVisible(commercialNameEn);
         commercialNameEn.click();
@@ -208,7 +196,6 @@ public class StakeholdersRegistrationPage {
         functions.waitForElementToBeVisible(chooseFromGalleryAttach);
         chooseFromGalleryAttach.click();
     }
-
     public void clickOnChooseAttachments() {
         functions.waitForElementToBeVisible(chooseAttachments);
         chooseAttachments.click();
@@ -218,14 +205,8 @@ public class StakeholdersRegistrationPage {
         functions.waitForElementToBeVisible(doneButton);
         doneButton.click();
     }
-    public void clickOnRegisterCompany() {
-        functions.waitForElementToBeVisible(registerCompany);
-        registerCompany.click();
-    }
-    public void clickOnRegisterFleet()   {
-        functions.waitForElementToBeVisible(registerFleet);
-        registerFleet.click();
-    }
+
+
     public void clickOnAccountButton() {
         functions.waitForElementToBeVisible(accountButton);
         accountButton.click();
@@ -246,5 +227,7 @@ public class StakeholdersRegistrationPage {
         functions.waitForElementToBeVisible(loginButton);
         loginButton.click();
     }
+
+
 
 }
