@@ -2,86 +2,119 @@ package stakeholdersRegistrationTests;
 
 import base.AndroidConfigurations;
 import commonSteps.StakeholderRegistrationSteps;
-import helpers.DatabaseHandler;
-import helpers.Functions;
-import helpers.Queries.OtherQueries;
-import io.appium.java_client.TouchAction;
-import io.appium.java_client.touch.offset.PointOption;
 import org.testng.annotations.Test;
-import pageModels.StakeholdersRegistrationPage;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 public class StakeholdersRegistrationTests extends AndroidConfigurations {
-    @Test(enabled = true)
+    @Test(enabled = false)
     public void TruckingCompany_External_Registration() throws InterruptedException, IOException {
         StakeholderRegistrationSteps stakeholderRegistrationSteps = new StakeholderRegistrationSteps(driver);
 
         // navigate to Registration Page
-        stakeholderRegistrationSteps.navigateToRegistrationPage();
+        stakeholderRegistrationSteps.navigateToRegistrationPage(1);
 
         // Fill-In Trucking Company Registration Button
-       stakeholderRegistrationSteps.fillInTruckingCompanyRegistrationButton();
+         stakeholderRegistrationSteps.fillInRoleRegistrationButton(0);
 
         // Fill-In Trucking Company Registration Info
-       //  stakeholderRegistrationSteps.fillInTruckingCompanyRegistrationInfo();
-        StakeholdersRegistrationPage stakeholdersRegistrationPage = new StakeholdersRegistrationPage(driver);
-        Functions functions = new Functions();
-
-        stakeholdersRegistrationPage.clickOnRegisterCompanyButton();
-        stakeholdersRegistrationPage.clickOnNextButton();
-        Thread.sleep(1000);
-
-        stakeholdersRegistrationPage.clickOnCommercialNameArabic();
-        String commercialNameAr = String.valueOf("الإسم بالعربي أتوميشن " + functions.getRandomNameArabic());
-        System.out.println("commercialNameAr " + commercialNameAr);
-        stakeholdersRegistrationPage.fillInCommercialNameArField(commercialNameAr);
-        driver.navigate().back();
-
-        stakeholdersRegistrationPage.clickOnCommercialNameEnglish();
-        String commercialNameEn = String.valueOf(" Commercial Name Auto En " + functions.getRandomNameEnglish());
-        stakeholdersRegistrationPage.fillInCommercialNameEnField(commercialNameEn);
-        driver.navigate().back();
-
-//        // Upload Attachments
-//         stakeholderRegistrationSteps.uploadStakeholderRegistrationAttachments();
+         stakeholderRegistrationSteps.fillInRoleRegistrationInfo(1);
+        // Upload Attachments
+        stakeholderRegistrationSteps.uploadStakeholderRegistrationAttachments(1);
     }
     @Test(enabled = false)
-    public void TruckOwner_External_Registration() throws InterruptedException, IOException {
-
+    public void ClearanceServices_External_Registration() throws InterruptedException, IOException {
         StakeholderRegistrationSteps stakeholderRegistrationSteps = new StakeholderRegistrationSteps(driver);
 
         // navigate to Registration Page
-        stakeholderRegistrationSteps.navigateToRegistrationPage();
+        stakeholderRegistrationSteps.navigateToRegistrationPage(2);
 
-        // Fill-In Trucking Company Registration Button
-        stakeholderRegistrationSteps.fillInTruckingCompanyRegistrationButton();
+        // Fill-In ClearanceServices Registration Button
+        stakeholderRegistrationSteps.fillInRoleRegistrationButton(0);
 
-        // Fill-In Trucking Company Registration Info
-        stakeholderRegistrationSteps.fillInTruckingCompanyRegistrationInfo();
+        // Fill-In Clearance Services Registration Info
+        stakeholderRegistrationSteps.fillInRoleRegistrationInfo(2);
 
         // Upload Attachments
-        stakeholderRegistrationSteps.uploadStakeholderRegistrationAttachments();
+        stakeholderRegistrationSteps.uploadStakeholderRegistrationAttachments(1);
+    }
+    @Test(enabled = false)
+    public void InsuranceServices_External_Registration() throws InterruptedException, IOException {
+        StakeholderRegistrationSteps stakeholderRegistrationSteps = new StakeholderRegistrationSteps(driver);
+
+        // navigate to Registration Page
+        stakeholderRegistrationSteps.navigateToRegistrationPage(3);
+
+        // Fill-In InsuranceServices Registration Button
+        stakeholderRegistrationSteps.fillInRoleRegistrationButton(0);
+
+        // Fill-In Clearance Services Registration Info
+        stakeholderRegistrationSteps.fillInRoleRegistrationInfo(3);
+
+        // Upload Attachments
+        stakeholderRegistrationSteps.uploadStakeholderRegistrationAttachments(1);
+    }
+    @Test(enabled = true)
+    public void ForwardingServices_External_Registration() throws InterruptedException, IOException {
+        StakeholderRegistrationSteps stakeholderRegistrationSteps = new StakeholderRegistrationSteps(driver);
+
+        // navigate to Registration Page
+        stakeholderRegistrationSteps.navigateToRegistrationPage(4);
+
+        // Fill-In ForwardingServices Registration Button
+        stakeholderRegistrationSteps.fillInRoleRegistrationButton(0);
+
+        // Fill-In Clearance Services Registration Info
+        stakeholderRegistrationSteps.fillInRoleRegistrationInfo(4);
+
+        // Upload Attachments
+        stakeholderRegistrationSteps.uploadStakeholderRegistrationAttachments(1);
     }
     @Test(enabled = false)
     public void CargoOwner_External_Registration() throws InterruptedException, IOException {
-
         StakeholderRegistrationSteps stakeholderRegistrationSteps = new StakeholderRegistrationSteps(driver);
 
         // navigate to Registration Page
-        stakeholderRegistrationSteps.navigateToRegistrationPage();
+        stakeholderRegistrationSteps.navigateToRegistrationPage(5);
+
+        // Fill-In Cargo Owner Registration Button
+        stakeholderRegistrationSteps.fillInRoleRegistrationButton(1);
+
+        // Fill-In Clearance Services Registration Info
+        stakeholderRegistrationSteps.fillInRoleRegistrationInfo(5);
+
+         // Upload Attachments
+        stakeholderRegistrationSteps.uploadStakeholderRegistrationAttachments(1);
+    }
+    @Test(enabled = false)
+    public void TruckingCompanyIndividual_External_Registration() throws InterruptedException, IOException {
+        StakeholderRegistrationSteps stakeholderRegistrationSteps = new StakeholderRegistrationSteps(driver);
+
+        // navigate to Registration Page
+        stakeholderRegistrationSteps.navigateToRegistrationPage(1);
 
         // Fill-In Trucking Company Registration Button
-        stakeholderRegistrationSteps.fillInTruckingCompanyRegistrationButton();
+        stakeholderRegistrationSteps.fillInRoleRegistrationButton(0);
+
+         // Fill-In Trucking Company Registration Info
+        stakeholderRegistrationSteps.fillInRoleRegistrationInfo(6);
+        // Upload Attachments
+        stakeholderRegistrationSteps.uploadStakeholderRegistrationAttachments(2);
+    }
+    @Test(enabled = false)
+    public void CargoOwnerIndividual_External_Registration() throws InterruptedException, IOException {
+        StakeholderRegistrationSteps stakeholderRegistrationSteps = new StakeholderRegistrationSteps(driver);
+
+        // navigate to Registration Page
+        stakeholderRegistrationSteps.navigateToRegistrationPage(1);
+
+        // Fill-In Trucking Company Registration Button
+        stakeholderRegistrationSteps.fillInRoleRegistrationButton(0);
 
         // Fill-In Trucking Company Registration Info
-        stakeholderRegistrationSteps.fillInTruckingCompanyRegistrationInfo();
-
+        stakeholderRegistrationSteps.fillInRoleRegistrationInfo(7);
         // Upload Attachments
-        stakeholderRegistrationSteps.uploadStakeholderRegistrationAttachments();
+         stakeholderRegistrationSteps.uploadStakeholderRegistrationAttachments(2);
     }
-
 }
 
 

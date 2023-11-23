@@ -8,6 +8,7 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.support.PageFactory;
 import pageModels.FleetRegistrationPage;
+import pageModels.StakeholdersRegistrationPage;
 
 import java.io.IOException;
 
@@ -98,6 +99,35 @@ public class FleetRegistrationSteps  extends AndroidConfigurations {
         fleetRegistrationPage.clickOnEquipmentManagement();
         fleetRegistrationPage.clickOnCloseButton();
         touchAction.tap(PointOption.point(77, 181)).perform();
+    }
+    public void uploadFleetRegistrationAttachments() throws IOException, InterruptedException {
+        StakeholdersRegistrationPage stakeholdersRegistrationPage = new StakeholdersRegistrationPage(driver);
+        //attachment 1
+        stakeholdersRegistrationPage.clickOnaAttachment1();
+        stakeholdersRegistrationPage.clickOnChooseFromGallery();
+        stakeholdersRegistrationPage.clickOnChooseAttachments();
+        stakeholdersRegistrationPage.clickOnNextButton();
+        //attachment 2
+        stakeholdersRegistrationPage.clickOnaAttachment1();
+        stakeholdersRegistrationPage.clickOnChooseFromGallery();
+        stakeholdersRegistrationPage.clickOnChooseAttachments();
+        stakeholdersRegistrationPage.clickOnNextButton();
+        //attachment 3
+        stakeholdersRegistrationPage.clickOnaAttachment1();
+        stakeholdersRegistrationPage.clickOnChooseFromGallery();
+        stakeholdersRegistrationPage.clickOnChooseAttachments();
+        stakeholdersRegistrationPage.clickOnNextButton();
+        //attachment 4
+        stakeholdersRegistrationPage.clickOnaAttachment1();
+        stakeholdersRegistrationPage.clickOnChooseFromGallery();
+        stakeholdersRegistrationPage.clickOnChooseAttachments();
+        stakeholdersRegistrationPage.clickOnNextButton();
+        //attachment 5
+        stakeholdersRegistrationPage.clickOnaAttachment1();
+        stakeholdersRegistrationPage.clickOnChooseFromGallery();
+        stakeholdersRegistrationPage.clickOnChooseAttachments();
+
+        stakeholdersRegistrationPage.clickOnDoneButton();
     }
 }
 

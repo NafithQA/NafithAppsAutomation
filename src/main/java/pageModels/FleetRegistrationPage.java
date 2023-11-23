@@ -56,7 +56,7 @@ public class FleetRegistrationPage {
     public WebElement yearPickerField;
     @FindBy(xpath= "//android.widget.Button[@content-desc='Truck Registration']")
     public WebElement registerTruck;
-    @FindBy(xpath= "//android.widget.Button[@content-desc='Trailer Registration']")
+    @FindBy(xpath= "//android.widget.Button[@content-desc=\"Trailer Registration\"]")
     public WebElement registerTrailer;
     @FindBy(xpath= "//android.widget.Button[@content-desc='Equipment registration']")
     public WebElement registerEquipment;
@@ -123,6 +123,7 @@ public class FleetRegistrationPage {
         functions.waitForElementToBeVisible(plateNumberField);
         plateNumberField.click();
     }
+
     public void fillInPlateNumberField(String PlateNumber) {
         functions.waitForElementToBeVisible(plateNumberField);
         plateNumberField.sendKeys(PlateNumber);

@@ -12,25 +12,35 @@ public class StakeholdersRegistrationPage {
     public WebElement allowButton;
     @FindBy(xpath = "//android.widget.Button[@content-desc='English']")
     public WebElement LanguageButton;
-
     @FindBy(xpath = "//android.widget.Button[@content-desc='Next']")
     public WebElement nextButton;
-
     @FindBy(xpath = "//android.widget.ImageView[@content-desc='Jordan']")
     public WebElement jordan_Button;
-
     @FindBy(xpath = "//android.widget.ImageView[@content-desc='Trucking Services']")
     public WebElement truckingCompanyButton;
-
+    @FindBy(xpath = "//android.widget.ImageView[@content-desc='Clearance Services']")
+    public WebElement clearanceServicesButton;
+    @FindBy(xpath = "//android.widget.ImageView[@content-desc=' Insurance Services']")
+    public WebElement insuranceServicesButton;
+    @FindBy(xpath = "//android.widget.ImageView[@content-desc='Forwarding Services']")
+    public WebElement forwardingServicesButton;
+    @FindBy(xpath = "//android.widget.ImageView[@content-desc='Cargo owner']")
+    public WebElement cargoOwnerButton;
     @FindBy(xpath = "//android.widget.Button[@content-desc=\"Let's Start\"]")
     public WebElement letsStartButton;
-
     @FindBy(xpath = "//android.widget.Button[@content-desc='Register Now']")
     public WebElement subscribeNowButton;
-
+    @FindBy(xpath = "//android.widget.ImageView[@content-desc=\"Provide your logistics services\n" +
+            "Find out now\"]")
+    public WebElement logisticsServicesFindOutButton;
+    @FindBy(xpath = "//android.widget.Button[@content-desc='Create Account']")
+    public WebElement createAccountVisitorButton;
+    @FindBy(xpath = "//android.widget.ImageView[@content-desc=\"Provide your logistics services\n" +
+            "Find out now\"]")
+    public WebElement provideLogisticsServicesFindOutButton;
     @FindBy(xpath = "//android.view.View[@content-desc='JO(+962)']")
     public WebElement countryKeyDropDownList;
-    @FindBy(xpath = "//android.widget.ImageView[@content-desc='OMN(+968)']")
+    @FindBy(xpath = "//android.view.View[@content-desc='Jordan']")
     public WebElement jordanCountryCodeButton;
     @FindBy(xpath = "(//android.widget.ImageView)[1]")
     public WebElement phoneNumberField;
@@ -38,22 +48,24 @@ public class StakeholdersRegistrationPage {
     public WebElement passwordField;
     @FindBy(xpath = "(//android.widget.Button)[2]")
     public WebElement createAccountButton;
-    @FindBy(xpath= "//android.widget.Button[@content-desc='Register Your Activity']")
+    @FindBy(xpath= "//android.widget.Button[@content-desc=\"Register Activity\"]")
     public WebElement registerCompanyButton;
-    @FindBy(xpath= "//android.view.View[@content-desc='Individuals']")
-    public WebElement registerTypeButton;
-    @FindBy(xpath= "//android.view.View[@content-desc='Transportation']")
-    public WebElement businessTypeButton;
-    @FindBy(className= "(//android.widget.EditText)[1]")
+    @FindBy(xpath= "//android.widget.Button[@content-desc=\"Register Your Activity\"]")
+    public WebElement registerYourActivityButton;
+     @FindBy(xpath= "(//android.widget.EditText)[1]")
     public WebElement commercialNameAR;
+    @FindBy(xpath= "//android.widget.EditText[1]")
+    public WebElement fillCommercialNameAR;
     @FindBy(xpath= "(//android.widget.EditText)[2]")
     public WebElement commercialNameEn;
     @FindBy(xpath= "(//android.widget.EditText)[3]")
     public WebElement commercialRegNum;
-    @FindBy(xpath= "//android.widget.EditText")
+    @FindBy(xpath= "(//android.widget.EditText)[2]")
     public WebElement emailField;
-    @FindBy(xpath= "(//android.view.View)[22]")
+    @FindBy(xpath= "(//android.view.View)[16]")
     public WebElement countryDropDownList;
+    @FindBy(xpath= "(//android.widget.EditText)[4]")
+    public WebElement governorateText;
     @FindBy(xpath= "(//android.widget.EditText)[2]")
     public WebElement governorateField;
     @FindBy(xpath= "(//android.widget.EditText)[3]")
@@ -66,6 +78,12 @@ public class StakeholdersRegistrationPage {
     public WebElement chooseAttachments;
     @FindBy(xpath= "//android.widget.Button[@content-desc='Done']")
     public WebElement doneButton;
+    @FindBy(xpath= "//android.widget.Button[@content-desc='Register']")
+    public WebElement registerButton;
+    @FindBy(xpath= "//android.view.View[@content-desc='Individual']")
+    public WebElement individualButton;
+    @FindBy(xpath= "//android.widget.Button[@content-desc='Back to home page']")
+    public WebElement backToHomePageButton;
     @FindBy(xpath= "//android.widget.ImageView[@content-desc='Account']")
     public WebElement accountButton;
     @FindBy(xpath=  "//android.widget.ImageView[@content-desc='Login']")
@@ -74,6 +92,16 @@ public class StakeholdersRegistrationPage {
     public WebElement loginPasswordField;
     @FindBy(xpath=  "//android.widget.Button[@content-desc='Login']")
     public WebElement loginButton;
+    @FindBy(xpath=  "//android.view.View[@content-desc='Trucking Services']")
+    public WebElement truckingCompanyBusinessActivityButton;
+    @FindBy(xpath=  "//android.view.View[@content-desc='Clearance Services']")
+    public WebElement clearanceServicesBusinessActivityButton;
+    @FindBy(xpath=  "//android.view.View[@content-desc=' Insurance Services']")
+    public WebElement insuranceServicesBusinessActivityButton;
+    @FindBy(xpath=  "//android.view.View[@content-desc='Forwarding Services']")
+    public WebElement forwardingServicesBusinessActivityButton;
+    @FindBy(xpath=  "//android.view.View[@content-desc='Cargo owner']")
+    public WebElement cargoOwnerBusinessActivityButton;
     public void clickOnAllowButton() {
         functions.waitForElementToBeVisible(allowButton);
         allowButton.click();
@@ -91,6 +119,22 @@ public class StakeholdersRegistrationPage {
         functions.waitForElementToBeVisible(truckingCompanyButton);
         truckingCompanyButton.click();
     }
+    public void clickOnClearanceServicesButton() {
+        functions.waitForElementToBeVisible(clearanceServicesButton);
+        clearanceServicesButton.click();
+    }
+    public void clickOnInsuranceServicesButton() {
+        functions.waitForElementToBeVisible(insuranceServicesButton);
+        insuranceServicesButton.click();
+    }
+    public void clickOnForwardingServicesButton() {
+        functions.waitForElementToBeVisible(forwardingServicesButton);
+        forwardingServicesButton.click();
+    }
+    public void clickOnCargoOwnerButton() {
+        functions.waitForElementToBeVisible(cargoOwnerButton);
+        cargoOwnerButton.click();
+    }
     public void clickOnLetsStartButton() throws InterruptedException {
         functions.waitForElementToBeVisible(letsStartButton);
         letsStartButton.click();
@@ -99,9 +143,17 @@ public class StakeholdersRegistrationPage {
         functions.waitForElementToBeVisible(subscribeNowButton);
         subscribeNowButton.click();
     }
-    public void clickOnCountryKeyDropDownList() {
-        functions.waitForElementToBeVisible(countryKeyDropDownList);
-        countryKeyDropDownList.click();
+    public void clickOnLogisticsServicesFindOutButton() {
+        functions.waitForElementToBeVisible(logisticsServicesFindOutButton);
+        logisticsServicesFindOutButton.click();
+    }
+    public void clickOnProvideLogisticsServicesFindOutButton() {
+        functions.waitForElementToBeVisible(provideLogisticsServicesFindOutButton);
+        provideLogisticsServicesFindOutButton.click();
+    }
+    public void clickOnCreateAccountVisitorButton() {
+        functions.waitForElementToBeVisible(createAccountVisitorButton);
+        createAccountVisitorButton.click();
     }
     public void clickOnJordanCountryCodeButton() {
         functions.waitForElementToBeVisible(jordanCountryCodeButton);
@@ -113,6 +165,7 @@ public class StakeholdersRegistrationPage {
     }
     public WebElement fillInPhoneNumberField(){
         functions.waitForElementToBeVisible(phoneNumberField);
+        phoneNumberField.click();
         return phoneNumberField;
     }
     public void clickOnPasswordField() {
@@ -131,22 +184,19 @@ public class StakeholdersRegistrationPage {
         functions.waitForElementToBeVisible(registerCompanyButton);
         registerCompanyButton.click();
     }
-    public void clickOnRegistrationTypeButton() {
-        functions.waitForElementToBeVisible(registerTypeButton);
-        registerTypeButton.click();
+    public void clickOnRegisterYourActivityButton() {
+        functions.waitForElementToBeVisible(registerYourActivityButton);
+        registerYourActivityButton.click();
     }
-    public void clickOnBusinessTypeButton() {
-        functions.waitForElementToBeVisible(businessTypeButton);
-        businessTypeButton.click();
-    }
-
+    //android.widget.Button[@content-desc="Register Your Activity"]
     public void clickOnCommercialNameArabic(){
         functions.waitForElementToBeVisible(commercialNameAR);
         commercialNameAR.click();
     }
-    public void fillInCommercialNameArField(String commercialNameAr) {
-        functions.waitForElementToBeVisible(commercialNameAR);
-        commercialNameAR.sendKeys(commercialNameAr);
+    public void fillInCommercialNameArField(String ArName) {
+        functions.waitForElementToBeVisible(fillCommercialNameAR);
+        fillCommercialNameAR.click();
+        fillCommercialNameAR.sendKeys(ArName);
     }
     public void clickOnCommercialNameEnglish() {
         functions.waitForElementToBeVisible(commercialNameEn);
@@ -154,6 +204,7 @@ public class StakeholdersRegistrationPage {
     }
     public void fillInCommercialNameEnField(String CommercialNameEn) {
         functions.waitForElementToBeVisible(commercialNameEn);
+        commercialNameEn.click();
         commercialNameEn.sendKeys(CommercialNameEn);
     }
     public void clickOnCommercialRegNum() {
@@ -162,6 +213,7 @@ public class StakeholdersRegistrationPage {
     }
     public void fillInCommercialRegNum(String commercialRegNumField) {
         functions.waitForElementToBeVisible(commercialRegNum);
+        commercialRegNum.click();
         commercialRegNum.sendKeys(commercialRegNumField);
     }
     public void clickOnEmail() {
@@ -170,6 +222,7 @@ public class StakeholdersRegistrationPage {
     }
     public void fillInEmail(String Email) {
         functions.waitForElementToBeVisible(emailField);
+        emailField.click();
         emailField.sendKeys(Email);
     }
     public void clickOnCountryDropDownList() {
@@ -177,12 +230,18 @@ public class StakeholdersRegistrationPage {
         countryDropDownList.click();
     }
     public void clickOnGovernorate() {
+        functions.waitForElementToBeVisible(governorateText);
+        governorateText.click();
+    }
+    public void fillInAddress(String address) {
+        functions.waitForElementToBeVisible(addressField);
+        addressField.click();
+        addressField.sendKeys(address);
+    }
+    public void fillInGovernorate(String governorate) {
         functions.waitForElementToBeVisible(governorateField);
         governorateField.click();
-    }
-    public void fillInGovernorate(String Email) {
-        functions.waitForElementToBeVisible(governorateField);
-        governorateField.sendKeys(Email);
+        governorateField.sendKeys(governorate);
     }
     public void clickOnAddress() {
         functions.waitForElementToBeVisible(addressField);
@@ -200,13 +259,22 @@ public class StakeholdersRegistrationPage {
         functions.waitForElementToBeVisible(chooseAttachments);
         chooseAttachments.click();
     }
-    public void clickOnDoneButton() throws InterruptedException {
-//        Thread.sleep(2000);
+    public void clickOnDoneButton()  {
         functions.waitForElementToBeVisible(doneButton);
         doneButton.click();
     }
-
-
+    public void clickOnRegisterButton()  {
+        functions.waitForElementToBeVisible(registerButton);
+        registerButton.click();
+    }
+    public void clickOnIndividualButton()  {
+        functions.waitForElementToBeVisible(individualButton);
+        individualButton.click();
+    }
+    public void clickOnBackToHomePage()  {
+        functions.waitForElementToBeVisible(backToHomePageButton);
+        backToHomePageButton.click();
+    }
     public void clickOnAccountButton() {
         functions.waitForElementToBeVisible(accountButton);
         accountButton.click();
@@ -227,7 +295,26 @@ public class StakeholdersRegistrationPage {
         functions.waitForElementToBeVisible(loginButton);
         loginButton.click();
     }
-
+    public void clickOnTruckingCompanyBusinessActivityButton() {
+        functions.waitForElementToBeVisible(truckingCompanyBusinessActivityButton);
+        truckingCompanyBusinessActivityButton.click();
+    }
+    public void clickOnClearanceServicesBusinessActivityButton() {
+        functions.waitForElementToBeVisible(clearanceServicesBusinessActivityButton);
+        clearanceServicesBusinessActivityButton.click();
+    }
+    public void clickOnInsuranceServicesBusinessActivityButton() {
+        functions.waitForElementToBeVisible(insuranceServicesBusinessActivityButton);
+        insuranceServicesBusinessActivityButton.click();
+    }
+    public void clickOnForwardingServicesBusinessActivityButton() {
+        functions.waitForElementToBeVisible(forwardingServicesBusinessActivityButton);
+        forwardingServicesBusinessActivityButton.click();
+    }
+    public void clickOnCargoOwnerBusinessActivityButton() {
+        functions.waitForElementToBeVisible(cargoOwnerBusinessActivityButton);
+        cargoOwnerBusinessActivityButton.click();
+    }
 
 
 }

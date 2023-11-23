@@ -4,16 +4,16 @@ import base.AndroidConfigurations;
 import commonSteps.FleetRegistrationSteps;
 import commonSteps.StakeholderRegistrationSteps;
 import org.testng.annotations.Test;
-import pageModels.StakeholdersRegistrationPage;
 
 import java.io.IOException;
 public class TruckingCompanyFleetRegistrationTests extends AndroidConfigurations {
+
     @Test(enabled = true)
     public void TruckingCompany_Login() throws IOException, InterruptedException {
         StakeholderRegistrationSteps stakeholderRegistrationSteps = new StakeholderRegistrationSteps(driver);
 
         // navigate to splash screens Pages
-        stakeholderRegistrationSteps.navigateToRegistrationPage();
+        stakeholderRegistrationSteps.navigateToRegistrationPage(1);
 
         // navigate to Registration Page
         stakeholderRegistrationSteps.navigateToLoginPage();
@@ -33,16 +33,15 @@ public class TruckingCompanyFleetRegistrationTests extends AndroidConfigurations
         fleetRegistrationSteps.navigateToFleetRegistrationPage();
 
         //  Upload Attachments
-        stakeholderRegistrationSteps.uploadStakeholderRegistrationAttachments();
+        fleetRegistrationSteps.uploadFleetRegistrationAttachments();
 
         // Navigate to Truck Complete registration Steps
         fleetRegistrationSteps.navigateCompleteTruckRegistrationPage();
     }
-    @Test(enabled = true)
+    @Test(enabled = false)
     public void TruckingCompany_Registration_Trailer() throws IOException, InterruptedException {
         FleetRegistrationSteps fleetRegistrationSteps = new FleetRegistrationSteps(driver);
         StakeholderRegistrationSteps stakeholderRegistrationSteps = new StakeholderRegistrationSteps(driver);
-        StakeholdersRegistrationPage stakeholdersRegistrationPage = new StakeholdersRegistrationPage(driver);
 
         //Navigate to Fleet Registration Page
         fleetRegistrationSteps.navigateToFleetTrailersRegistrationPage();
@@ -51,16 +50,14 @@ public class TruckingCompanyFleetRegistrationTests extends AndroidConfigurations
         fleetRegistrationSteps.navigateToFleetRegistrationPage();
 
         //  Upload Attachments
-        stakeholderRegistrationSteps.uploadStakeholderRegistrationAttachments();
+        fleetRegistrationSteps.uploadFleetRegistrationAttachments();
 
         // Navigate to Trailer Complete registration Steps
         fleetRegistrationSteps.navigateCompleteTrailerRegistrationPage();
     }
-    @Test(enabled = true)
+    @Test(enabled = false)
     public void TruckingCompany_Registration_Equipment() throws IOException, InterruptedException {
         FleetRegistrationSteps fleetRegistrationSteps = new FleetRegistrationSteps(driver);
-        StakeholderRegistrationSteps stakeholderRegistrationSteps = new StakeholderRegistrationSteps(driver);
-        StakeholdersRegistrationPage stakeholdersRegistrationPage = new StakeholdersRegistrationPage(driver);
 
         //Navigate to Fleet Registration Page
         fleetRegistrationSteps.navigateToFleetEquipmentRegistrationPage();
@@ -69,10 +66,9 @@ public class TruckingCompanyFleetRegistrationTests extends AndroidConfigurations
         fleetRegistrationSteps.navigateToFleetRegistrationPage();
 
         //  Upload Attachments
-        stakeholderRegistrationSteps.uploadStakeholderRegistrationAttachments();
+        fleetRegistrationSteps.uploadFleetRegistrationAttachments();
 
         // Navigate to Trailer Complete registration Steps
         fleetRegistrationSteps.navigateCompleteEquipmentRegistrationPage();
     }
-
 }

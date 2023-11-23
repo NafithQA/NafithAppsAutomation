@@ -193,7 +193,7 @@ public class Functions extends AndroidConfigurations {
     }
 
     public String getRandomNameArabic() {
-        String RansomName = "ابتثجحخدرزسشصضطظعغفقكلمنهوي";
+        String RansomName = "تحخهععغفثقثصضشسيبلاتنمك";
         StringBuilder salt = new StringBuilder();
         Random rnd = new Random();
         while (salt.length() < 6) { // length of the random string.
