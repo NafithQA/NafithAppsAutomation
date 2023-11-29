@@ -11,7 +11,7 @@ public class DataLoader {
 
         FileReader reader =
                 new FileReader(System.getProperty("user.dir") + File.separator + "src" + File.separator + "main" + File.separator + "resources" + File.separator + "testData" + File.separator + "credentials");
-        Properties p = new Properties();     
+        Properties p = new Properties();
         p.load(reader);
 
         return p.getProperty(key);

@@ -102,6 +102,19 @@ public class StakeholdersRegistrationPage {
     public WebElement forwardingServicesBusinessActivityButton;
     @FindBy(xpath=  "//android.view.View[@content-desc='Cargo owner']")
     public WebElement cargoOwnerBusinessActivityButton;
+    @FindBy(xpath=  "//android.widget.ImageView[@content-desc='My service settings\n" +
+            "Edit the services I provide']")
+    public WebElement myServicesPageButton;
+    @FindBy(xpath=  "//android.widget.ImageView[@content-desc='Locate the company']")
+    public WebElement companyLocationOnTheMapButton;
+    @FindBy(id=  "com.android.permissioncontroller:id/permission_allow_foreground_only_button")
+    public WebElement allowLocationButton;
+    @FindBy(xpath=  "//android.widget.Button[@content-desc='Confirm the location']")
+    public WebElement confirmTheLocationButton;
+    @FindBy(xpath=  "//android.widget.Button[@content-desc='Save Settings']")
+    public WebElement saveSettingButton;
+
+
     public void clickOnAllowButton() {
         functions.waitForElementToBeVisible(allowButton);
         allowButton.click();
@@ -315,6 +328,28 @@ public class StakeholdersRegistrationPage {
         functions.waitForElementToBeVisible(cargoOwnerBusinessActivityButton);
         cargoOwnerBusinessActivityButton.click();
     }
+    public void clickOnMyServicesPageButton() {
+        functions.waitForElementToBeVisible(myServicesPageButton);
+        myServicesPageButton.click();
+    }
+    public void clickOnaCompanyLocationOnTheMap() {
+        functions.waitForElementToBeVisible(companyLocationOnTheMapButton);
+        companyLocationOnTheMapButton.click();
+    }
+    public void clickOnAllowLocation() {
+        functions.waitForElementToBeVisible(allowLocationButton);
+        allowLocationButton.click();
+    }
+    public void clickConfirmTheLocation() throws InterruptedException {
+        Thread.sleep(10000);
+        functions.waitForElementToBeVisible(confirmTheLocationButton);
+        confirmTheLocationButton.click();
+    }
+    public void clickOnSaveSetting() {
+        functions.waitForElementToBeVisible(saveSettingButton);
+        saveSettingButton.click();
+    }
+
 
 
 }

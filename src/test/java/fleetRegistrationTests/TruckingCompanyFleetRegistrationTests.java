@@ -38,7 +38,7 @@ public class TruckingCompanyFleetRegistrationTests extends AndroidConfigurations
         // Navigate to Truck Complete registration Steps
         fleetRegistrationSteps.navigateCompleteTruckRegistrationPage();
     }
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void TruckingCompany_Registration_Trailer() throws IOException, InterruptedException {
         FleetRegistrationSteps fleetRegistrationSteps = new FleetRegistrationSteps(driver);
         StakeholderRegistrationSteps stakeholderRegistrationSteps = new StakeholderRegistrationSteps(driver);
@@ -55,7 +55,7 @@ public class TruckingCompanyFleetRegistrationTests extends AndroidConfigurations
         // Navigate to Trailer Complete registration Steps
         fleetRegistrationSteps.navigateCompleteTrailerRegistrationPage();
     }
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void TruckingCompany_Registration_Equipment() throws IOException, InterruptedException {
         FleetRegistrationSteps fleetRegistrationSteps = new FleetRegistrationSteps(driver);
 

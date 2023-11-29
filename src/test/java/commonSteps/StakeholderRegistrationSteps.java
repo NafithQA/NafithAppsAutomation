@@ -16,7 +16,11 @@ public class StakeholderRegistrationSteps  extends AndroidConfigurations {
     public StakeholderRegistrationSteps(AndroidDriver driver) {
         PageFactory.initElements(driver, this);}
     Functions functions = new Functions();
-
+    TouchAction touchAction = new TouchAction(driver);
+//    public enum Roles {
+//        TruckingCompany, ClearanceServices, InsuranceServices, ForwardingServices,
+//        CargoOwner, CargoOwnerIndividual
+//    }
     public void navigateToRegistrationPage(int Role) throws InterruptedException {
       StakeholdersRegistrationPage stakeholdersRegistrationPage = new StakeholdersRegistrationPage(driver);
  
@@ -77,7 +81,7 @@ public class StakeholderRegistrationSteps  extends AndroidConfigurations {
         System.out.println("otpNumber " + otpNumber);
         Thread.sleep(2000);
 
-        TouchAction touchAction = new TouchAction(driver);
+
         touchAction.tap(PointOption.point(113, 1463)).perform();
 
         // Creating array of string length
@@ -199,7 +203,38 @@ public class StakeholderRegistrationSteps  extends AndroidConfigurations {
         driver.navigate().back();
         stakeholdersRegistrationPage.clickOnLoginButton();
     }
+    public void fillInFreightForwardingLoginInfo () throws InterruptedException, IOException {
+        StakeholdersRegistrationPage stakeholdersRegistrationPage = new StakeholdersRegistrationPage(driver);
+        DataLoader dataLoader = new DataLoader();
 
+
+        TouchAction touchAction = new TouchAction(driver);
+        touchAction.tap(PointOption.point(899, 1532)).perform();
+        stakeholdersRegistrationPage.clickOnPhoneNumberField();
+        stakeholdersRegistrationPage.fillInPhoneNumberField().sendKeys(dataLoader.credentialsData("freightForwardingUser"));
+        stakeholdersRegistrationPage.clickOnLoginPasswordField();
+        stakeholdersRegistrationPage.fillInLoginPasswordField(dataLoader.credentialsData("freightForwardingPass"));
+        driver.navigate().back();
+        stakeholdersRegistrationPage.clickOnLoginButton();
+    }
+    public void navigateToServicesSettingsPage() {
+        StakeholdersRegistrationPage stakeholdersRegistrationPage = new StakeholdersRegistrationPage(driver);
+
+        stakeholdersRegistrationPage.clickOnAccountButton();
+        stakeholdersRegistrationPage.clickOnMyServicesPageButton();
+    }
+    public  void fillAllServicesSettingsInfo () throws InterruptedException {
+        StakeholdersRegistrationPage stakeholdersRegistrationPage = new StakeholdersRegistrationPage(driver);
+
+        stakeholdersRegistrationPage.clickOnaAttachment1();
+        stakeholdersRegistrationPage.clickOnChooseFromGallery();
+        stakeholdersRegistrationPage.clickOnChooseAttachments();
+        touchAction.press(PointOption.point(321, 2713)).moveTo(PointOption.point(578, 1147)).release().perform();
+        stakeholdersRegistrationPage.clickOnaCompanyLocationOnTheMap();
+        stakeholdersRegistrationPage.clickOnAllowLocation();
+        stakeholdersRegistrationPage.clickConfirmTheLocation();
+        stakeholdersRegistrationPage.clickOnSaveSetting();
+    }
 }
 
 
