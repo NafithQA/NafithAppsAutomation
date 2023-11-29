@@ -6,6 +6,7 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -191,7 +192,13 @@ public class Functions extends AndroidConfigurations {
         String saltStr = salt.toString();
         return saltStr;
     }
+    public void scrollThePageDown() throws InterruptedException {
 
+        Actions actions = new Actions(driver);
+        Thread.sleep(750);
+        actions.sendKeys(Keys.PAGE_DOWN).build().perform();
+        Thread.sleep(750);
+    }
     public String getRandomNameArabic() {
         String RansomName = "تحخهععغفثقثصضشسيبلاتنمك";
         StringBuilder salt = new StringBuilder();
