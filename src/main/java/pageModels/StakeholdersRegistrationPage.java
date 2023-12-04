@@ -40,7 +40,7 @@ public class StakeholdersRegistrationPage {
     public WebElement provideLogisticsServicesFindOutButton;
     @FindBy(xpath = "//android.view.View[@content-desc='JO(+962)']")
     public WebElement countryKeyDropDownList;
-    @FindBy(xpath = "//android.view.View[@content-desc='Jordan']")
+    @FindBy(xpath = "//android.widget.ImageView[@content-desc='Jordan']")
     public WebElement jordanCountryCodeButton;
     @FindBy(xpath = "(//android.widget.ImageView)[1]")
     public WebElement phoneNumberField;
@@ -48,9 +48,9 @@ public class StakeholdersRegistrationPage {
     public WebElement passwordField;
     @FindBy(xpath = "(//android.widget.Button)[2]")
     public WebElement createAccountButton;
-    @FindBy(xpath= "//android.widget.Button[@content-desc=\"Register Activity\"]")
+    @FindBy(xpath= "//android.widget.Button[@content-desc=\"Register Now\"]")
     public WebElement registerCompanyButton;
-    @FindBy(xpath= "//android.widget.Button[@content-desc=\"Register Your Activity\"]")
+    @FindBy(xpath= "//android.widget.Button[@content-desc=\"Register Activity\"]")
     public WebElement registerYourActivityButton;
      @FindBy(xpath= "(//android.widget.EditText)[1]")
     public WebElement commercialNameAR;
@@ -113,7 +113,16 @@ public class StakeholdersRegistrationPage {
     public WebElement confirmTheLocationButton;
     @FindBy(xpath=  "//android.widget.Button[@content-desc='Save Settings']")
     public WebElement saveSettingButton;
-
+    @FindBy(xpath=  "//android.widget.ImageView[@content-desc='Search']")
+    public WebElement searchPage;
+    @FindBy(xpath=  "//android.widget.ImageView[@content-desc='Forwarding Services']")
+    public WebElement ForwardingServicesButton;
+    @FindBy(xpath=  "//android.widget.ImageView[@content-desc='Category']")
+    public WebElement CategoryButton;
+    @FindBy(xpath=  "//android.view.View[@content-desc='Air freight']")
+    public WebElement airFrightTypeButton;
+    @FindBy(xpath=  "//android.widget.Button[@content-desc='Show results']")
+    public WebElement showResultButton;
 
     public void clickOnAllowButton() {
         functions.waitForElementToBeVisible(allowButton);
@@ -201,7 +210,6 @@ public class StakeholdersRegistrationPage {
         functions.waitForElementToBeVisible(registerYourActivityButton);
         registerYourActivityButton.click();
     }
-    //android.widget.Button[@content-desc="Register Your Activity"]
     public void clickOnCommercialNameArabic(){
         functions.waitForElementToBeVisible(commercialNameAR);
         commercialNameAR.click();
@@ -341,7 +349,7 @@ public class StakeholdersRegistrationPage {
         allowLocationButton.click();
     }
     public void clickConfirmTheLocation() throws InterruptedException {
-        Thread.sleep(10000);
+        Thread.sleep(1000);
         functions.waitForElementToBeVisible(confirmTheLocationButton);
         confirmTheLocationButton.click();
     }
@@ -349,7 +357,24 @@ public class StakeholdersRegistrationPage {
         functions.waitForElementToBeVisible(saveSettingButton);
         saveSettingButton.click();
     }
-
-
-
+    public void clickOnSearchPage() {
+        functions.waitForElementToBeVisible(searchPage);
+        searchPage.click();
+    }
+    public void clickOnForwardingServices() {
+        functions.waitForElementToBeVisible(ForwardingServicesButton);
+        ForwardingServicesButton.click();
+    }
+    public void clickOnCategoryButton(){
+        functions.waitForElementToBeVisible(CategoryButton);
+        CategoryButton.click();
+    }
+    public void clickOnAirFrightTypeButton(){
+        functions.waitForElementToBeVisible(airFrightTypeButton);
+        airFrightTypeButton.click();
+    }//android.widget.Button[@content-desc="Show results"]
+    public void clickOnShowResultButton(){
+        functions.waitForElementToBeVisible(showResultButton);
+        showResultButton.click();
+    }
 }

@@ -5,31 +5,24 @@ import commonSteps.StakeholderRegistrationSteps;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
-
 public class CargoInsuranceFleetRegistrationTests extends AndroidConfigurations {
 
     @Test(enabled = true)
-    public void FreightForwarding_Login() throws IOException, InterruptedException {
+    public void CargoInsurance_ServicesSettings() throws IOException, InterruptedException {
         StakeholderRegistrationSteps stakeholderRegistrationSteps = new StakeholderRegistrationSteps(driver);
 
-        // navigate to splash screens Pages
-        stakeholderRegistrationSteps.navigateToRegistrationPage(4);
-
-        // navigate to Registration Page
-        stakeholderRegistrationSteps.navigateToLoginPage();
+        // navigate to Login Page
+        stakeholderRegistrationSteps.navigateToRegistrationPage(3,true);
 
         // Fill-In Trucking Company Login Info
-        stakeholderRegistrationSteps.fillInFreightForwardingLoginInfo();
-    }
-    @Test(enabled = true)
-    public void FreightForwarding_ServicesSettings() throws IOException, InterruptedException {
-        StakeholderRegistrationSteps stakeholderRegistrationSteps = new StakeholderRegistrationSteps(driver);
+        stakeholderRegistrationSteps.fillInCargoLoginInfo();
 
-        // navigate to splash screens Pages
-        stakeholderRegistrationSteps.navigateToServicesSettingsPage();
+        // navigate to Search Page
+        stakeholderRegistrationSteps.navigateToSearchPage();
 
         // navigate to Registration Page
-        stakeholderRegistrationSteps.fillAllServicesSettingsInfo();
-    }
+        stakeholderRegistrationSteps.fillAllSearchCategoryInfo();
 
+        Thread.sleep(100000);
+    }
 }

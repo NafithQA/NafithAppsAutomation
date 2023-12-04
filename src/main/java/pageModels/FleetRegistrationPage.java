@@ -18,11 +18,17 @@ public class FleetRegistrationPage {
     public WebElement trailerButton;
     @FindBy(xpath= "//android.widget.Button[@content-desc='Add Equipment']")
     public WebElement equipmentButton;
-    @FindBy(xpath=  "(//android.widget.ImageView)[1]")
+    @FindBy(xpath=  "//android.widget.Button[@content-desc='Add Truck']")
     public WebElement addTruckButton;
-    @FindBy(xpath=  "(//android.widget.ImageView)[2]")
+    @FindBy(xpath=  "//android.widget.ImageView[@content-desc='Trucks']")
+    public WebElement trucksFleetManagementButton;
+    @FindBy(xpath=  "//android.widget.ImageView[@content-desc='Trailers']")
+    public WebElement trailerFleetsManagementButton;
+    @FindBy(xpath=  "//android.widget.ImageView[@content-desc='Equipments']")
+    public WebElement equipmentFleetsManagementButton;
+    @FindBy(xpath=  "//android.widget.Button[@content-desc='Add Trailer']")
     public WebElement addTrailerButton;
-    @FindBy(xpath=  "(//android.widget.ImageView)[3]")
+    @FindBy(xpath=  "//android.widget.Button[@content-desc='Add Equipment']")
     public WebElement addEquipmentButton;
     @FindBy(xpath= "//android.widget.ImageView")
     public WebElement vehicleNationalityDropDownList;
@@ -89,6 +95,18 @@ public class FleetRegistrationPage {
     public void clickOnAddTruckButton() {
         functions.waitForElementToBeVisible(addTruckButton);
         addTruckButton.click();
+    }
+    public void clickOnTrucksFleetManagement() {
+        functions.waitForElementToBeVisible(trucksFleetManagementButton);
+        trucksFleetManagementButton.click();
+    }
+    public void clickOnTrailerFleetsManagement() {
+        functions.waitForElementToBeVisible(trailerFleetsManagementButton);
+        trailerFleetsManagementButton.click();
+    }
+    public void clickOnEquipmentFleetManagement() {
+        functions.waitForElementToBeVisible(equipmentFleetsManagementButton);
+        equipmentFleetsManagementButton.click();
     }
     public void clickOnAddTrailerButton() {
         functions.waitForElementToBeVisible(addTrailerButton);

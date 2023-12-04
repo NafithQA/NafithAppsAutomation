@@ -17,11 +17,7 @@ public class StakeholderRegistrationSteps  extends AndroidConfigurations {
         PageFactory.initElements(driver, this);}
     Functions functions = new Functions();
     TouchAction touchAction = new TouchAction(driver);
-//    public enum Roles {
-//        TruckingCompany, ClearanceServices, InsuranceServices, ForwardingServices,
-//        CargoOwner, CargoOwnerIndividual
-//    }
-    public void navigateToRegistrationPage(int Role) throws InterruptedException {
+    public void navigateToRegistrationPage(int Role ,boolean Login) throws InterruptedException {
       StakeholdersRegistrationPage stakeholdersRegistrationPage = new StakeholdersRegistrationPage(driver);
  
       stakeholdersRegistrationPage.clickOnAllowButton();
@@ -46,28 +42,20 @@ public class StakeholderRegistrationSteps  extends AndroidConfigurations {
                 break;
         }
         stakeholdersRegistrationPage.clickOnLetsStartButton();
+        if (Login == true){
+            stakeholdersRegistrationPage.clickOnAccountButton();
+            stakeholdersRegistrationPage.clickOnLoginPage();
+        }
        }
-    public void navigateToLoginPage() {
-        StakeholdersRegistrationPage stakeholdersRegistrationPage = new StakeholdersRegistrationPage(driver);
-
-        stakeholdersRegistrationPage.clickOnAccountButton();
-        stakeholdersRegistrationPage.clickOnLoginPage();
-    }
-    public void fillInRoleRegistrationButton(int RegisterFlag) throws IOException, InterruptedException {
+    public void fillInRoleRegistrationButton() throws IOException, InterruptedException {
         StakeholdersRegistrationPage stakeholdersRegistrationPage = new StakeholdersRegistrationPage(driver);
         DatabaseHandler databaseHandler = new DatabaseHandler();
 
-        if(RegisterFlag == 1){
-            stakeholdersRegistrationPage.clickOnLogisticsServicesFindOutButton();
-            stakeholdersRegistrationPage.clickOnCreateAccountVisitorButton();
-        } else if (RegisterFlag == 0) {
-            stakeholdersRegistrationPage.clickOnRegisterCompanyButton();
-        }
+        stakeholdersRegistrationPage.clickOnRegisterCompanyButton();
         stakeholdersRegistrationPage.clickOnPhoneNumberField();
         String phoneNumber = String.valueOf(functions.generateRandomNumber(9));
         System.out.println("Phone number " + phoneNumber);
         stakeholdersRegistrationPage.fillInPhoneNumberField().sendKeys(phoneNumber);
-
         stakeholdersRegistrationPage.clickOnPasswordField();
         String password = functions.generateRandomPassword();
         System.out.println("Password " + password);
@@ -76,59 +64,46 @@ public class StakeholderRegistrationSteps  extends AndroidConfigurations {
         stakeholdersRegistrationPage.clickOnCreateAccountButton();
         Thread.sleep(5000);
         ArrayList<String> approvalNumberList = databaseHandler.getOTPFromDataBase(OtherQueries.otpNumber(phoneNumber));
-
         String otpNumber = approvalNumberList.get(0);
         System.out.println("otpNumber " + otpNumber);
         Thread.sleep(2000);
-
-
         touchAction.tap(PointOption.point(113, 1463)).perform();
-
         // Creating array of string length
         String[] arr = new String[otpNumber.length()];
-
         // Copy character by character into array
         for (int i = 0; i < otpNumber.length(); i++) {
             arr[i] = String.valueOf(otpNumber.charAt(i));
         }
-
         for (int i = 0; i < otpNumber.length(); i++) {
             functions.getOtpCodeNumbers(driver, arr[i]);
         }
-       // Thread.sleep(1000);
+       Thread.sleep(1000);
     }
     public void fillInRoleRegistrationInfo(int BusinessActivity) throws IOException, InterruptedException{
         StakeholdersRegistrationPage stakeholdersRegistrationPage = new StakeholdersRegistrationPage(driver);
 
+        stakeholdersRegistrationPage.clickOnRegisterYourActivityButton();
         switch (BusinessActivity) {
             case 1:
-                stakeholdersRegistrationPage.clickOnRegisterYourActivityButton();
-                stakeholdersRegistrationPage.clickOnTruckingCompanyBusinessActivityButton();
+                 stakeholdersRegistrationPage.clickOnTruckingCompanyBusinessActivityButton();
                 break;
             case 2:
-                stakeholdersRegistrationPage.clickOnRegisterYourActivityButton();
-                stakeholdersRegistrationPage.clickOnClearanceServicesBusinessActivityButton();
+                 stakeholdersRegistrationPage.clickOnClearanceServicesBusinessActivityButton();
                 break;
             case 3:
-                stakeholdersRegistrationPage.clickOnRegisterYourActivityButton();
-                stakeholdersRegistrationPage.clickOnInsuranceServicesBusinessActivityButton();
+                 stakeholdersRegistrationPage.clickOnInsuranceServicesBusinessActivityButton();
                 break;
             case 4:
-                stakeholdersRegistrationPage.clickOnRegisterYourActivityButton();
-                stakeholdersRegistrationPage.clickOnForwardingServicesBusinessActivityButton();
+                 stakeholdersRegistrationPage.clickOnForwardingServicesBusinessActivityButton();
                 break;
             case 5:
-                stakeholdersRegistrationPage.clickOnProvideLogisticsServicesFindOutButton();
-                stakeholdersRegistrationPage.clickOnRegisterButton();
-                stakeholdersRegistrationPage.clickOnCargoOwnerBusinessActivityButton();
+                 stakeholdersRegistrationPage.clickOnCargoOwnerBusinessActivityButton();
                 break;
             case 6:
-                stakeholdersRegistrationPage.clickOnRegisterYourActivityButton();
                 stakeholdersRegistrationPage.clickOnIndividualButton();
                 stakeholdersRegistrationPage.clickOnTruckingCompanyBusinessActivityButton();
                 break;
             case 7:
-                stakeholdersRegistrationPage.clickOnRegisterYourActivityButton();
                 stakeholdersRegistrationPage.clickOnIndividualButton();
                 stakeholdersRegistrationPage.clickOnCargoOwnerBusinessActivityButton();
                 break;
@@ -193,7 +168,6 @@ public class StakeholderRegistrationSteps  extends AndroidConfigurations {
         StakeholdersRegistrationPage stakeholdersRegistrationPage = new StakeholdersRegistrationPage(driver);
         DataLoader dataLoader = new DataLoader();
 
-
         TouchAction touchAction = new TouchAction(driver);
         touchAction.tap(PointOption.point(899, 1532)).perform();
         stakeholdersRegistrationPage.clickOnPhoneNumberField();
@@ -217,6 +191,19 @@ public class StakeholderRegistrationSteps  extends AndroidConfigurations {
         driver.navigate().back();
         stakeholdersRegistrationPage.clickOnLoginButton();
     }
+
+    public void fillInCargoLoginInfo () throws InterruptedException, IOException {
+        StakeholdersRegistrationPage stakeholdersRegistrationPage = new StakeholdersRegistrationPage(driver);
+        DataLoader dataLoader = new DataLoader();
+
+        touchAction.tap(PointOption.point(899, 1532)).perform();
+        stakeholdersRegistrationPage.clickOnPhoneNumberField();
+        stakeholdersRegistrationPage.fillInPhoneNumberField().sendKeys(dataLoader.credentialsData("CargoUser"));
+        stakeholdersRegistrationPage.clickOnLoginPasswordField();
+        stakeholdersRegistrationPage.fillInLoginPasswordField(dataLoader.credentialsData("freightForwardingPass"));
+        driver.navigate().back();
+        stakeholdersRegistrationPage.clickOnLoginButton();
+    }
     public void navigateToServicesSettingsPage() {
         StakeholdersRegistrationPage stakeholdersRegistrationPage = new StakeholdersRegistrationPage(driver);
 
@@ -234,6 +221,22 @@ public class StakeholderRegistrationSteps  extends AndroidConfigurations {
         stakeholdersRegistrationPage.clickOnAllowLocation();
         stakeholdersRegistrationPage.clickConfirmTheLocation();
         stakeholdersRegistrationPage.clickOnSaveSetting();
+    }
+    public void navigateToSearchPage() {
+        StakeholdersRegistrationPage stakeholdersRegistrationPage = new StakeholdersRegistrationPage(driver);
+
+        stakeholdersRegistrationPage.clickOnSearchPage();
+    }
+    public void fillAllSearchCategoryInfo() {
+        StakeholdersRegistrationPage stakeholdersRegistrationPage = new StakeholdersRegistrationPage(driver);
+
+        stakeholdersRegistrationPage.clickOnForwardingServices();
+        stakeholdersRegistrationPage.clickOnCategoryButton();
+        stakeholdersRegistrationPage.clickOnAirFrightTypeButton();
+        touchAction.tap(PointOption.point(655, 1129)).perform();
+        stakeholdersRegistrationPage.clickOnAllowLocation();
+        touchAction.tap(PointOption.point(1255, 840)).perform();
+        stakeholdersRegistrationPage.clickOnShowResultButton();
     }
 }
 

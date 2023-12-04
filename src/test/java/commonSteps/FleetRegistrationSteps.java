@@ -1,7 +1,6 @@
 package commonSteps;
 
 import base.AndroidConfigurations;
-import helpers.DatabaseHandler;
 import helpers.Functions;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
@@ -15,29 +14,26 @@ import java.io.IOException;
 public class FleetRegistrationSteps  extends AndroidConfigurations {
     public FleetRegistrationSteps(AndroidDriver driver) {
         PageFactory.initElements(driver, this);}
-    DatabaseHandler databaseHandler = new DatabaseHandler();
+
     Functions functions = new Functions();
-    public void navigateToFleetTruckRegistrationPage() throws IOException, InterruptedException {
+    public void navigateToFleetTruckRegistrationPage(){
         FleetRegistrationPage fleetRegistrationPage = new FleetRegistrationPage(driver);
 
-        fleetRegistrationPage.clickOnFleetManagement();
+         fleetRegistrationPage.clickOnTrucksFleetManagement();
         fleetRegistrationPage.clickOnAddTruckButton();
-        fleetRegistrationPage.clickOnTruckButton();
     }
 
-    public void navigateToFleetTrailersRegistrationPage() throws IOException, InterruptedException {
+    public void navigateToFleetTrailersRegistrationPage()  {
         FleetRegistrationPage fleetRegistrationPage = new FleetRegistrationPage(driver);
 
-        fleetRegistrationPage.clickOnFleetManagement();
+        fleetRegistrationPage.clickOnTrailerFleetsManagement();
         fleetRegistrationPage.clickOnAddTrailerButton();
-        fleetRegistrationPage.clickOnTrailerButton();
     }
     public void navigateToFleetEquipmentRegistrationPage() throws IOException, InterruptedException {
         FleetRegistrationPage fleetRegistrationPage = new FleetRegistrationPage(driver);
 
-        fleetRegistrationPage.clickOnFleetManagement();
+        fleetRegistrationPage.clickOnEquipmentFleetManagement();
         fleetRegistrationPage.clickOnAddEquipmentButton();
-        fleetRegistrationPage.clickOnEquipmentButton();
     }
     public void navigateToFleetRegistrationPage() throws IOException, InterruptedException {
         FleetRegistrationPage fleetRegistrationPage = new FleetRegistrationPage(driver);
@@ -68,12 +64,14 @@ public class FleetRegistrationSteps  extends AndroidConfigurations {
         String NumberOfAxles = String.valueOf(functions.generateRandomNumber(1));
         fleetRegistrationPage.fillInNumberOfAxlesField(NumberOfAxles);
         driver.navigate().back();
+        Thread.sleep(1000);
         fleetRegistrationPage.clickOnYearField();
+        Thread.sleep(1000);
         fleetRegistrationPage.clickOnYearPicker();
         fleetRegistrationPage.clickOnNextButton();
     }
 
-    public void navigateCompleteTruckRegistrationPage() throws IOException, InterruptedException {
+    public void navigateCompleteTruckRegistrationPage() {
         FleetRegistrationPage fleetRegistrationPage = new FleetRegistrationPage(driver);
         TouchAction touchAction = new TouchAction(driver);
 
@@ -82,7 +80,7 @@ public class FleetRegistrationSteps  extends AndroidConfigurations {
         fleetRegistrationPage.clickOnCloseButton();
         touchAction.tap(PointOption.point(77, 181)).perform();
     }
-    public void navigateCompleteTrailerRegistrationPage() throws IOException, InterruptedException {
+    public void navigateCompleteTrailerRegistrationPage(){
         FleetRegistrationPage fleetRegistrationPage = new FleetRegistrationPage(driver);
         TouchAction touchAction = new TouchAction(driver);
 
@@ -91,7 +89,7 @@ public class FleetRegistrationSteps  extends AndroidConfigurations {
         fleetRegistrationPage.clickOnCloseButton();
         touchAction.tap(PointOption.point(77, 181)).perform();
     }
-    public void navigateCompleteEquipmentRegistrationPage() throws IOException, InterruptedException {
+    public void navigateCompleteEquipmentRegistrationPage()  {
         FleetRegistrationPage fleetRegistrationPage = new FleetRegistrationPage(driver);
         TouchAction touchAction = new TouchAction(driver);
 
