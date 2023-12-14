@@ -9,6 +9,7 @@ import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.support.PageFactory;
+import pageModels.FleetRegistrationPage;
 import pageModels.StakeholdersRegistrationPage;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -227,7 +228,7 @@ public class StakeholderRegistrationSteps  extends AndroidConfigurations {
 
         stakeholdersRegistrationPage.clickOnSearchPage();
     }
-    public void fillAllSearchCategoryInfo() {
+    public void fillAllForwardingServicesSearchCategoryInfo() {
         StakeholdersRegistrationPage stakeholdersRegistrationPage = new StakeholdersRegistrationPage(driver);
 
         stakeholdersRegistrationPage.clickOnForwardingServices();
@@ -237,6 +238,30 @@ public class StakeholderRegistrationSteps  extends AndroidConfigurations {
         stakeholdersRegistrationPage.clickOnAllowLocation();
         touchAction.tap(PointOption.point(1255, 840)).perform();
         stakeholdersRegistrationPage.clickOnShowResultButton();
+    }
+    public void fillAllTruckingServicesSearchCategoryInfo() throws InterruptedException {
+        StakeholdersRegistrationPage stakeholdersRegistrationPage = new StakeholdersRegistrationPage(driver);
+        FleetRegistrationPage fleetRegistrationPage = new FleetRegistrationPage(driver);
+
+        stakeholdersRegistrationPage.clickOnTruckingServices();
+        stakeholdersRegistrationPage.clickOnCategoryButton();
+        fleetRegistrationPage.clickOnVehicleClassButton();
+        stakeholdersRegistrationPage.clickOnUsageTypeButton();
+        stakeholdersRegistrationPage.clickOnSelectUsageTypeButton();
+        stakeholdersRegistrationPage.clickOnChooseButton();
+        stakeholdersRegistrationPage.clickOnNumberOfAxlesButton();
+        touchAction.tap(PointOption.point(650, 2406)).perform();
+        stakeholdersRegistrationPage.clickOnAllowLocation();
+        stakeholdersRegistrationPage.clickOnSeekBar();
+        touchAction.tap(PointOption.point(1160, 2135)).perform();
+        Thread.sleep(1000);
+        stakeholdersRegistrationPage.clickOnShowResultButton();
+        Thread.sleep(10000);
+//        stakeholdersRegistrationPage.clickOnSearchBox();
+        touchAction.tap(PointOption.point(172, 456)).perform();
+        stakeholdersRegistrationPage.clickOnChooseFromSearchBox();
+        Thread.sleep(10000);
+
     }
 }
 

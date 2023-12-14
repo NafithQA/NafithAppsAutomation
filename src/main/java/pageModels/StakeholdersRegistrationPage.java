@@ -117,12 +117,28 @@ public class StakeholdersRegistrationPage {
     public WebElement searchPage;
     @FindBy(xpath=  "//android.widget.ImageView[@content-desc='Forwarding Services']")
     public WebElement ForwardingServicesButton;
+    @FindBy(xpath=  "//android.widget.ImageView[@content-desc='Trucking Services']")
+    public WebElement truckingServicesButton;
     @FindBy(xpath=  "//android.widget.ImageView[@content-desc='Category']")
     public WebElement CategoryButton;
     @FindBy(xpath=  "//android.view.View[@content-desc='Air freight']")
     public WebElement airFrightTypeButton;
     @FindBy(xpath=  "//android.widget.Button[@content-desc='Show results']")
     public WebElement showResultButton;
+    @FindBy(xpath=  "//android.view.View[@content-desc='Usage Type\n" + "Choose']")
+    public WebElement usageTypeButton;
+    @FindBy(xpath=  "//android.widget.Button[@content-desc='Cement Tanker']")
+    public WebElement selectUsageTypeButton;
+    @FindBy(xpath=  "//android.widget.Button[@content-desc='Choose']")
+    public WebElement chooseButton;
+    @FindBy(xpath=  "//android.view.View[@content-desc='2']")
+    public WebElement numberOfAxlesButton;
+    @FindBy(xpath=  "//android.view.View[@content-desc='2']")
+    public WebElement SeekBar;
+    @FindBy(xpath=  "//android.widget.ImageView[1]")
+    public WebElement SearchBox;
+    @FindBy(xpath=  "//android.view.View[@content-desc=\"Cement Tanker\"])[2]")
+    public WebElement ChooseFromSearchBox;
 
     public void clickOnAllowButton() {
         functions.waitForElementToBeVisible(allowButton);
@@ -365,6 +381,10 @@ public class StakeholdersRegistrationPage {
         functions.waitForElementToBeVisible(ForwardingServicesButton);
         ForwardingServicesButton.click();
     }
+    public void clickOnTruckingServices() {
+        functions.waitForElementToBeVisible(truckingServicesButton);
+        truckingServicesButton.click();
+    }
     public void clickOnCategoryButton(){
         functions.waitForElementToBeVisible(CategoryButton);
         CategoryButton.click();
@@ -372,9 +392,37 @@ public class StakeholdersRegistrationPage {
     public void clickOnAirFrightTypeButton(){
         functions.waitForElementToBeVisible(airFrightTypeButton);
         airFrightTypeButton.click();
-    }//android.widget.Button[@content-desc="Show results"]
+    }
+    public void clickOnUsageTypeButton(){
+        functions.waitForElementToBeVisible(usageTypeButton);
+        usageTypeButton.click();
+    }
     public void clickOnShowResultButton(){
         functions.waitForElementToBeVisible(showResultButton);
         showResultButton.click();
+    }
+    public void clickOnSelectUsageTypeButton(){
+        functions.waitForElementToBeVisible(selectUsageTypeButton);
+        selectUsageTypeButton.click();
+    }
+    public void clickOnChooseButton(){
+        functions.waitForElementToBeVisible(chooseButton);
+        chooseButton.click();
+    }
+    public void clickOnNumberOfAxlesButton(){
+        functions.waitForElementToBeVisible(numberOfAxlesButton);
+        numberOfAxlesButton.click();
+    }
+    public void clickOnSeekBar(){
+        functions.waitForElementToBeVisible(SeekBar);
+        SeekBar.click();
+    }
+    public void clickOnSearchBox(){
+        functions.waitForElementToBeVisible(SearchBox);
+        SearchBox.click();
+    }
+    public void clickOnChooseFromSearchBox(){
+        functions.waitForElementToBeVisible(ChooseFromSearchBox);
+        ChooseFromSearchBox.click();
     }
 }
