@@ -48,7 +48,7 @@ public class FleetRegistrationPage {
     public WebElement usageField;
     @FindBy(xpath= "(//android.view.View)[6]")
     public WebElement chooseUsageField;
-    @FindBy(xpath= "//android.view.View[@content-desc=\"Heavy Truck\"]")
+    @FindBy(xpath= "//android.view.View[@content-desc='Heavy Truck']")
     public WebElement vehicleClassButton;
     @FindBy(xpath= "(//android.widget.EditText)[3]")
     public WebElement vehicleMaxLoad;

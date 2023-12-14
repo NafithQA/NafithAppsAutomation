@@ -6,9 +6,24 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 public class CargoInsuranceFleetRegistrationTests extends AndroidConfigurations {
-
     @Test(enabled = true)
-    public void CargoInsurance_ServicesSettings() throws IOException, InterruptedException {
+    public void CargoOwner_External_Registration() throws InterruptedException, IOException {
+        StakeholderRegistrationSteps stakeholderRegistrationSteps = new StakeholderRegistrationSteps(driver);
+
+        // navigate to Registration Page
+        stakeholderRegistrationSteps.navigateToRegistrationPage(5,false);
+
+        // Fill-In Cargo Owner Registration Button
+        stakeholderRegistrationSteps.fillInRoleRegistrationButton();
+
+        // Fill-In Clearance Services Registration Info
+        stakeholderRegistrationSteps.fillInRoleRegistrationInfo(5);
+
+        // Upload Attachments
+        stakeholderRegistrationSteps.uploadStakeholderRegistrationAttachments(1);
+    }
+    @Test(enabled = true)
+    public void CargoInsurance_Forwarding_Services_Search_Category() throws IOException, InterruptedException {
         StakeholderRegistrationSteps stakeholderRegistrationSteps = new StakeholderRegistrationSteps(driver);
 
         // navigate to Login Page
@@ -21,8 +36,8 @@ public class CargoInsuranceFleetRegistrationTests extends AndroidConfigurations 
         stakeholderRegistrationSteps.navigateToSearchPage();
 
         // navigate to Registration Page
-        stakeholderRegistrationSteps.fillAllSearchCategoryInfo();
+        stakeholderRegistrationSteps.fillAllForwardingServicesSearchCategoryInfo();
 
-        Thread.sleep(100000);
+        Thread.sleep(1000);
     }
 }

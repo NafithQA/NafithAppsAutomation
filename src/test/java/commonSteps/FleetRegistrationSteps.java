@@ -71,7 +71,7 @@ public class FleetRegistrationSteps  extends AndroidConfigurations {
         fleetRegistrationPage.clickOnNextButton();
     }
 
-    public void navigateCompleteTruckRegistrationPage() {
+    public void navigateCompleteTruckRegistrationPage() throws InterruptedException {
         FleetRegistrationPage fleetRegistrationPage = new FleetRegistrationPage(driver);
         TouchAction touchAction = new TouchAction(driver);
 
@@ -79,6 +79,7 @@ public class FleetRegistrationSteps  extends AndroidConfigurations {
         fleetRegistrationPage.clickOnTruckManagement();
         fleetRegistrationPage.clickOnCloseButton();
         touchAction.tap(PointOption.point(77, 181)).perform();
+        Thread.sleep(3000);
     }
     public void navigateCompleteTrailerRegistrationPage(){
         FleetRegistrationPage fleetRegistrationPage = new FleetRegistrationPage(driver);
