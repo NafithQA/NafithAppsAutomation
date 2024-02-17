@@ -1,5 +1,5 @@
 package base;
-
+import helpers.EmailSender;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
@@ -15,19 +15,29 @@ public class AndroidConfigurations {
     public static AndroidDriver driver;
 
     @BeforeMethod(alwaysRun = true)
-    public static AppiumDriver capabilities() throws IOException {
+    @Parameters({"env"})
+    public static AppiumDriver capabilities(String environment) throws IOException {
+
+        String appActivity = null;
+        if (environment.equalsIgnoreCase("qa")){
+            appActivity = "MainActivity";
+        }
+        else if (environment.equalsIgnoreCase("live")){
+            appActivity = "com.nafith.nstar.MainActivity";
+        }
+
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
 //		App Path
         File appDir = new File("src");
-        File app = new File(appDir, "app (9).apk");
+        File app = new File(appDir, "app.apk");
         capabilities.setCapability("newCommandTimeout", 100000);
 //       capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Pixel_XL");
-        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "SM_A217F");
+        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Pixel_New");
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "uiautomator2");
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
         capabilities.setCapability("appPackage", "com.nafith.nstar.nstar");
-        capabilities.setCapability("appActivity", "MainActivity");
+        capabilities.setCapability("appActivity", appActivity);
         capabilities.setCapability("appWaitDuration", "20000");
         capabilities.setCapability(MobileCapabilityType.APP, app.getAbsolutePath());
         capabilities.setCapability(MobileCapabilityType.CLEAR_SYSTEM_FILES, true);
@@ -36,6 +46,7 @@ public class AndroidConfigurations {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
         return driver;
     }
+
     @AfterMethod(alwaysRun = true)
     public void testTearDown() {
         // Driver Close
@@ -43,4 +54,11 @@ public class AndroidConfigurations {
             driver.quit();
         }
     }
+//    @AfterSuite(alwaysRun = true)
+//    public void sendReport() throws InterruptedException {
+//
+//        Thread.sleep(1000);
+//        EmailSender emailSender = new EmailSender();
+//        emailSender.sendReportByMail();
+//    }
 }

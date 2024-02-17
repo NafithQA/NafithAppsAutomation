@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 public class TruckingCompanyFleetRegistrationTests extends AndroidConfigurations {
+
     @Test(enabled = false)
     public void TruckingCompany_External_Registration() throws InterruptedException, IOException {
         StakeholderRegistrationSteps stakeholderRegistrationSteps = new StakeholderRegistrationSteps(driver);
@@ -19,17 +20,18 @@ public class TruckingCompanyFleetRegistrationTests extends AndroidConfigurations
         stakeholderRegistrationSteps.fillInRoleRegistrationButton();
 
         // Fill-In Trucking Company Registration Info
-        stakeholderRegistrationSteps.fillInRoleRegistrationInfo(1);
+         stakeholderRegistrationSteps.fillInRoleRegistrationInfo(1);
 
         // Upload Attachments
         stakeholderRegistrationSteps.uploadStakeholderRegistrationAttachments(1);
 
+        // Navigate to registration Steps By Admin Apis
+        ApiHandler.RegistrationExternalStakeholder() ;
     }
-    @Test(enabled = true)
+    @Test(enabled = false)
     public void TruckingCompany_Registration_Truck() throws IOException, InterruptedException {
         FleetRegistrationSteps fleetRegistrationSteps = new FleetRegistrationSteps(driver);
         StakeholderRegistrationSteps stakeholderRegistrationSteps = new StakeholderRegistrationSteps(driver);
-        ApiHandler apihandler = new ApiHandler();
 
         // navigate to Login Page
         stakeholderRegistrationSteps.navigateToRegistrationPage(1, true);
@@ -49,8 +51,9 @@ public class TruckingCompanyFleetRegistrationTests extends AndroidConfigurations
         // Navigate to Truck Complete registration Steps
         fleetRegistrationSteps.navigateCompleteTruckRegistrationPage();
 
-        apihandler.main();
-    }
+        // Navigate to Truck Complete registration Steps By Admin Apis
+        ApiHandler.TrucksRegistration() ;
+    } 
     @Test(enabled = false)
     public void TruckingCompany_Registration_Trailer() throws IOException, InterruptedException {
         FleetRegistrationSteps fleetRegistrationSteps = new FleetRegistrationSteps(driver);
@@ -73,6 +76,9 @@ public class TruckingCompanyFleetRegistrationTests extends AndroidConfigurations
 
         // Navigate to Trailer Complete registration Steps
         fleetRegistrationSteps.navigateCompleteTrailerRegistrationPage();
+
+        // Navigate to Trailer Complete registration Steps By Admin Apis
+        ApiHandler.TrailerRegistration() ;
     }
     @Test(enabled = false)
     public void TruckingCompany_Registration_Equipment() throws IOException, InterruptedException {
@@ -96,6 +102,9 @@ public class TruckingCompanyFleetRegistrationTests extends AndroidConfigurations
 
         // Navigate to Trailer Complete registration Steps
         fleetRegistrationSteps.navigateCompleteEquipmentRegistrationPage();
+
+        // Navigate to Equipment Complete registration Steps By Admin Apis
+        ApiHandler.EquipmentRegistration() ;
     }
     @Test(enabled = false)
     public void TruckingCompany_Search_Services_With_Distance() throws IOException, InterruptedException {
@@ -109,9 +118,63 @@ public class TruckingCompanyFleetRegistrationTests extends AndroidConfigurations
         stakeholderRegistrationSteps.fillInTruckingCompanyLoginInfo();
 
         // navigate to Search Page
-        stakeholderRegistrationSteps.navigateToSearchPage();
+        stakeholderRegistrationSteps.navigateToSearchPage(0);
 
         // navigate to Registration Page
         stakeholderRegistrationSteps.fillAllTruckingServicesSearchCategoryInfo();
+    }
+    @Test(enabled = false)
+    public void Insurance_Service_Search_Category() throws IOException, InterruptedException {
+        StakeholderRegistrationSteps stakeholderRegistrationSteps = new StakeholderRegistrationSteps(driver);
+
+        // navigate to Login Page
+        stakeholderRegistrationSteps.navigateToRegistrationPage(1,true);
+
+        // Fill-In Freight Forwarding  Login Info
+        stakeholderRegistrationSteps.fillInTruckingCompanyLoginInfo();
+
+        // navigate to Search Page
+        stakeholderRegistrationSteps.navigateToSearchPage(3);
+
+        // navigate to Registration Page
+        stakeholderRegistrationSteps.fillAllServicesSearchCategoryInfo();
+
+        Thread.sleep(1000);
+    }
+    @Test(enabled = false)
+    public void Clearance_Service_Search_Category() throws IOException, InterruptedException {
+        StakeholderRegistrationSteps stakeholderRegistrationSteps = new StakeholderRegistrationSteps(driver);
+
+        // navigate to Login Page
+        stakeholderRegistrationSteps.navigateToRegistrationPage(1, true);
+
+        // Fill-In Cargo Login Info
+        stakeholderRegistrationSteps.fillInTruckingCompanyLoginInfo();
+
+        // navigate to Search Page
+        stakeholderRegistrationSteps.navigateToSearchPage(1);
+
+        // navigate to Registration Page
+        stakeholderRegistrationSteps.fillAllServicesSearchCategoryInfo();
+
+        Thread.sleep(1000);
+    }
+    @Test(enabled = true)
+    public void Forwarding_Services_Search_Category() throws IOException, InterruptedException {
+        StakeholderRegistrationSteps stakeholderRegistrationSteps = new StakeholderRegistrationSteps(driver);
+
+        // navigate to Login Page
+        stakeholderRegistrationSteps.navigateToRegistrationPage(1,true);
+
+        // Fill-In Trucking Company Login Info
+        stakeholderRegistrationSteps.fillInTruckingCompanyLoginInfo();
+
+        // navigate to Search Page
+        stakeholderRegistrationSteps.navigateToSearchPage(2);
+
+        // navigate to Registration Page
+        stakeholderRegistrationSteps.fillAllServicesSearchCategoryInfo();
+
+        Thread.sleep(1000);
     }
 }

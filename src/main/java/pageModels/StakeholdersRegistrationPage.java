@@ -10,6 +10,9 @@ public class StakeholdersRegistrationPage {
     public StakeholdersRegistrationPage(AndroidDriver driver) {PageFactory.initElements(driver, this);}
     @FindBy(id = "com.android.permissioncontroller:id/permission_allow_button")
     public WebElement allowButton;
+    @FindBy(id = "com.android.permissioncontroller:id/permission_deny_button")
+    public WebElement denyAllowButton;
+
     @FindBy(xpath = "//android.widget.Button[@content-desc='English']")
     public WebElement LanguageButton;
     @FindBy(xpath = "//android.widget.Button[@content-desc='Next']")
@@ -48,6 +51,9 @@ public class StakeholdersRegistrationPage {
     public WebElement passwordField;
     @FindBy(xpath = "(//android.widget.Button)[2]")
     public WebElement createAccountButton;
+    @FindBy(xpath = "//android.view.View[@content-desc=\"I agree to the Terms and Conditions \"]/android.widget.CheckBox")
+    public WebElement IAgreeCheckBox;
+
     @FindBy(xpath= "//android.widget.Button[@content-desc=\"Register Now\"]")
     public WebElement registerCompanyButton;
     @FindBy(xpath= "//android.widget.Button[@content-desc=\"Register Activity\"]")
@@ -62,19 +68,23 @@ public class StakeholdersRegistrationPage {
     public WebElement commercialRegNum;
     @FindBy(xpath= "(//android.widget.EditText)[2]")
     public WebElement emailField;
-    @FindBy(xpath= "(//android.view.View)[16]")
+    @FindBy(xpath= "(//android.view.View[@content-desc='Country'])[2]")
     public WebElement countryDropDownList;
-    @FindBy(xpath= "(//android.widget.EditText)[4]")
-    public WebElement governorateText;
-    @FindBy(xpath= "(//android.widget.EditText)[2]")
-    public WebElement governorateField;
     @FindBy(xpath= "(//android.widget.EditText)[3]")
+    public WebElement governorateText;
+    @FindBy(xpath= "(//android.widget.EditText)[3]")
+    public WebElement governorateField;
+    @FindBy(xpath= "(//android.widget.EditText)[4]")
     public WebElement addressField;
-    @FindBy(xpath= "//android.widget.ImageView")
+    @FindBy(xpath= "(//android.widget.EditText)[3]")
+    public WebElement addressFieldFill;
+    @FindBy(xpath= "//android.widget.Button[@content-desc=\"Attach photo\"]")
+    public WebElement attachmentPhoto1;
+    @FindBy(xpath= "(//android.widget.ImageView)[1]")
     public WebElement attachmentPhoto;
     @FindBy(xpath= "//android.view.View[@content-desc=\"Choose from gallery\"]")
     public WebElement chooseFromGalleryAttach;
-    @FindBy(xpath= "(//android.widget.ImageView)[4]")
+    @FindBy(xpath= "(//android.widget.ImageView)[2]")
     public WebElement chooseAttachments;
     @FindBy(xpath= "//android.widget.Button[@content-desc='Done']")
     public WebElement doneButton;
@@ -117,11 +127,16 @@ public class StakeholdersRegistrationPage {
     public WebElement searchPage;
     @FindBy(xpath=  "//android.widget.ImageView[@content-desc='Forwarding Services']")
     public WebElement ForwardingServicesButton;
+    @FindBy(xpath=  "//android.widget.ImageView[@content-desc=' Insurance Services']")
+    public WebElement InsuranceServices;
+
+    @FindBy(xpath=  "//android.widget.ImageView[@content-desc='Clearance Services']")
+    public WebElement ClearanceServices;
     @FindBy(xpath=  "//android.widget.ImageView[@content-desc='Trucking Services']")
     public WebElement truckingServicesButton;
     @FindBy(xpath=  "//android.widget.ImageView[@content-desc='Category']")
     public WebElement CategoryButton;
-    @FindBy(xpath=  "//android.view.View[@content-desc='Air freight']")
+    @FindBy(xpath=  "//android.view.View[@content-desc='All']")
     public WebElement airFrightTypeButton;
     @FindBy(xpath=  "//android.widget.Button[@content-desc='Show results']")
     public WebElement showResultButton;
@@ -143,6 +158,10 @@ public class StakeholdersRegistrationPage {
     public void clickOnAllowButton() {
         functions.waitForElementToBeVisible(allowButton);
         allowButton.click();
+    }
+    public void clickOnDenyAllowButton() {
+        functions.waitForElementToBeVisible(denyAllowButton);
+        denyAllowButton.click();
     }
     public void clickOnNextButton() throws InterruptedException {
         Thread.sleep(1000);
@@ -218,6 +237,11 @@ public class StakeholdersRegistrationPage {
         functions.waitForElementToBeVisible(createAccountButton);
         createAccountButton.click();
     }
+    public void clickOnIAgreeCheckBox() {
+        functions.waitForElementToBeVisible(IAgreeCheckBox);
+        IAgreeCheckBox.click();
+    }
+
     public void clickOnRegisterCompanyButton() {
         functions.waitForElementToBeVisible(registerCompanyButton);
         registerCompanyButton.click();
@@ -271,9 +295,9 @@ public class StakeholdersRegistrationPage {
         governorateText.click();
     }
     public void fillInAddress(String address) {
-        functions.waitForElementToBeVisible(addressField);
-        addressField.click();
-        addressField.sendKeys(address);
+        functions.waitForElementToBeVisible(addressFieldFill);
+        addressFieldFill.click();
+        addressFieldFill.sendKeys(address);
     }
     public void fillInGovernorate(String governorate) {
         functions.waitForElementToBeVisible(governorateField);
@@ -285,6 +309,10 @@ public class StakeholdersRegistrationPage {
         addressField.click();
     }
     public void clickOnaAttachment1() {
+        functions.waitForElementToBeVisible(attachmentPhoto1);
+        attachmentPhoto1.click();
+    }
+    public void clickOnaAttachment() {
         functions.waitForElementToBeVisible(attachmentPhoto);
         attachmentPhoto.click();
     }
@@ -380,6 +408,16 @@ public class StakeholdersRegistrationPage {
     public void clickOnForwardingServices() {
         functions.waitForElementToBeVisible(ForwardingServicesButton);
         ForwardingServicesButton.click();
+    }
+    public void clickOnInsuranceServices() {
+        functions.waitForElementToBeVisible(InsuranceServices);
+        InsuranceServices.click();
+    }
+
+
+    public void clickOnClearanceServices() {
+        functions.waitForElementToBeVisible(ClearanceServices);
+        ClearanceServices.click();
     }
     public void clickOnTruckingServices() {
         functions.waitForElementToBeVisible(truckingServicesButton);
