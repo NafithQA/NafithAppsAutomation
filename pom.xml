@@ -17,6 +17,7 @@
         <maven.compiler.source>17</maven.compiler.source>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <aspectj.version>1.9.20.1</aspectj.version>
     </properties>
 
     <profiles>
@@ -33,23 +34,13 @@
                 </resources>
 
                 <plugins>
-                    <plugin>
-                        <!--                        <artifactId>maven-surefire-plugin</artifactId>-->
-                        <!--                        &lt;!&ndash; latest version (2.20.1) does not work well with JUnit5 &ndash;&gt;-->
-                        <!--                        <version>2.19.1</version>-->
-                        <!--                        <dependencies>-->
-                        <!--                            <dependency>-->
-                        <!--                                <groupId>org.junit.platform</groupId>-->
-                        <!--                                <artifactId>junit-platform-surefire-provider</artifactId>-->
-                        <!--                                <version>1.0.3</version>-->
-                        <!--                            </dependency>-->
-                        <!--                            <dependency>-->
-                        <groupId>org.junit.jupiter</groupId>
-                        <artifactId>junit-jupiter-engine</artifactId>
-                        <version>5.0.3</version>
-                        <!--                            </dependency>-->
-                        <!--                        </dependencies>-->
-                    </plugin>
+<!--                    <plugin>-->
+
+<!--                        <groupId>org.junit.jupiter</groupId>-->
+<!--                        <artifactId>junit-jupiter-engine</artifactId>-->
+<!--                        <version>5.0.3</version>-->
+
+<!--                    </plugin>-->
 
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
@@ -57,13 +48,85 @@
                         <version>3.0.0-M4</version>
 
                         <configuration>
+                            <argLine>
+                                -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                            </argLine>
+                            <systemPropertyVariables>
+                                <language>${env}</language>
+                            </systemPropertyVariables>
                             <testFailureIgnore>true</testFailureIgnore>
                             <suiteXmlFiles>
                                 <suiteXmlFile>testng.xml</suiteXmlFile>
                             </suiteXmlFiles>
                         </configuration>
+                        <dependencies>
+                            <dependency>
+                                <groupId>org.aspectj</groupId>
+                                <artifactId>aspectjweaver</artifactId>
+                                <version>${aspectj.version}</version>
+                            </dependency>
+                        </dependencies>
                     </plugin>
 
+
+<!--                    <plugin>-->
+
+<!--                        <groupId>ch.fortysix</groupId>-->
+<!--                        <artifactId>maven-postman-plugin</artifactId>-->
+<!--                        <version>0.1.6</version>-->
+<!--                        <executions>-->
+<!--                            <execution>-->
+
+<!--                                <id>send a mail</id>-->
+<!--                                <phase>test</phase>-->
+<!--                                <goals>-->
+<!--                                    <goal>send-mail</goal>-->
+<!--                                </goals>-->
+<!--                                <inherited>true</inherited>-->
+
+<!--                                <configuration>-->
+<!--                                    &lt;!&ndash; From Email address &ndash;&gt;-->
+<!--                                    <from>automation@nafith.com</from>-->
+
+<!--                                    &lt;!&ndash;  Email subject &ndash;&gt;-->
+<!--                                    <subject>Test Automation Report</subject>-->
+<!--                                    &lt;!&ndash; Fail the build if the mail doesnt reach &ndash;&gt;-->
+<!--                                    <failonerror>true</failonerror>-->
+<!--                                    &lt;!&ndash; host &ndash;&gt;-->
+<!--                                    <mailhost>smtp.gmail.com</mailhost>-->
+<!--                                    &lt;!&ndash; port of the host &ndash;&gt;-->
+<!--                                    <mailport>465</mailport>-->
+<!--                                    <mailssl>true</mailssl>-->
+<!--                                    <mailAltConfig>true</mailAltConfig>-->
+
+<!--                                    &lt;!&ndash; Email Authentication(USername and Password) &ndash;&gt;-->
+<!--                                    <mailuser>automation@nafith.com</mailuser>-->
+<!--                                    <mailpassword>Automation-1234</mailpassword>-->
+
+<!--                                    <receivers>-->
+<!--                                        &lt;!&ndash; To Email address &ndash;&gt;-->
+<!--                                        <to>dyousef@gmail.com</to>-->
+<!--                                    </receivers>-->
+
+<!--                                    <fileSets>-->
+<!--                                        <fileSet>-->
+<!--                                            <directory>${basedir}/test-output/ExtentReports/</directory>-->
+<!--                                            <includes>-->
+<!--                                                <include>*.html</include>-->
+<!--                                            </includes>-->
+<!--                                        </fileSet>-->
+<!--                                    </fileSets>-->
+<!--                                </configuration>-->
+<!--                            </execution>-->
+<!--                        </executions>-->
+<!--                    </plugin>-->
+
+                    <plugin>
+                        <groupId>io.qameta.allure</groupId>
+                        <artifactId>allure-maven</artifactId>
+                        <version>2.12.0</version>
+
+                    </plugin>
                 </plugins>
             </build>
         </profile>
@@ -213,12 +276,7 @@
             <version>3.1.0</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>5.0.3</version>
-            <scope>test</scope>
-        </dependency>
+
 
         <dependency>
             <groupId>junit</groupId>
@@ -339,12 +397,12 @@
             <version>1.6</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>5.0.3</version>
-            <scope>test</scope>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.junit.jupiter</groupId>-->
+<!--            <artifactId>junit-jupiter-api</artifactId>-->
+<!--            <version>5.0.3</version>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>junit</groupId>
@@ -429,5 +487,28 @@
             <scope>compile</scope>
         </dependency>
 
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>2.23.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-maven</artifactId>
+            <version>2.12.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>smtp</artifactId>
+            <version>1.4.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>mailapi</artifactId>
+            <version>1.4.4</version>
+        </dependency>
     </dependencies>
 </project>

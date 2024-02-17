@@ -20,7 +20,8 @@ public class StakeholderRegistrationSteps  extends AndroidConfigurations {
     TouchAction touchAction = new TouchAction(driver);
     public void navigateToRegistrationPage(int Role ,boolean Login) throws InterruptedException {
       StakeholdersRegistrationPage stakeholdersRegistrationPage = new StakeholdersRegistrationPage(driver);
- 
+
+      Thread.sleep(1000);
       stakeholdersRegistrationPage.clickOnAllowButton();
       stakeholdersRegistrationPage.clickOnNextButton();
       stakeholdersRegistrationPage.clickOnJordan_Button();
@@ -53,6 +54,7 @@ public class StakeholderRegistrationSteps  extends AndroidConfigurations {
         DatabaseHandler databaseHandler = new DatabaseHandler();
 
         stakeholdersRegistrationPage.clickOnRegisterCompanyButton();
+        Thread.sleep(100);
         stakeholdersRegistrationPage.clickOnPhoneNumberField();
         String phoneNumber = String.valueOf(functions.generateRandomNumber(9));
         System.out.println("Phone number " + phoneNumber);
@@ -62,13 +64,14 @@ public class StakeholderRegistrationSteps  extends AndroidConfigurations {
         System.out.println("Password " + password);
         stakeholdersRegistrationPage.fillInPasswordField(password);
         driver.navigate().back();
+        stakeholdersRegistrationPage.clickOnIAgreeCheckBox();
         stakeholdersRegistrationPage.clickOnCreateAccountButton();
         Thread.sleep(5000);
         ArrayList<String> approvalNumberList = databaseHandler.getOTPFromDataBase(OtherQueries.otpNumber(phoneNumber));
         String otpNumber = approvalNumberList.get(0);
         System.out.println("otpNumber " + otpNumber);
         Thread.sleep(2000);
-        touchAction.tap(PointOption.point(113, 1463)).perform();
+        touchAction.tap(PointOption.point(76, 753)).perform();
         // Creating array of string length
         String[] arr = new String[otpNumber.length()];
         // Copy character by character into array
@@ -78,7 +81,7 @@ public class StakeholderRegistrationSteps  extends AndroidConfigurations {
         for (int i = 0; i < otpNumber.length(); i++) {
             functions.getOtpCodeNumbers(driver, arr[i]);
         }
-       Thread.sleep(1000);
+        Thread.sleep(1000);
     }
     public void fillInRoleRegistrationInfo(int BusinessActivity) throws IOException, InterruptedException{
         StakeholdersRegistrationPage stakeholdersRegistrationPage = new StakeholdersRegistrationPage(driver);
@@ -123,58 +126,105 @@ public class StakeholderRegistrationSteps  extends AndroidConfigurations {
         stakeholdersRegistrationPage.fillInCommercialRegNum(CommercialRegNum);
         driver.navigate().back();
         stakeholdersRegistrationPage.clickOnNextButton();
-        Thread.sleep(1000);
-        stakeholdersRegistrationPage.clickOnPhoneNumberField();
+        Thread.sleep(500);
         String phoneNumberReg = String.valueOf(functions.generateRandomNumber(15));
+        TouchAction touchAction = new TouchAction(driver);
+        touchAction.tap(PointOption.point(481, 339)).perform();
         stakeholdersRegistrationPage.fillInPhoneNumberField().sendKeys(phoneNumberReg);
         driver.navigate().back();
         stakeholdersRegistrationPage.clickOnEmail();
         String Email = String.valueOf(functions.getRandomEmailString() + "@gmail.com");
         stakeholdersRegistrationPage.fillInEmail(Email);
         driver.navigate().back();
-        stakeholdersRegistrationPage.clickOnAddress();
-        String address = String.valueOf("address Auto" + functions.getRandomNameEnglish());
-        stakeholdersRegistrationPage.fillInAddress(address);
-        driver.navigate().back();
         stakeholdersRegistrationPage.clickOnCountryDropDownList();
         stakeholdersRegistrationPage.clickOnJordanCountryCodeButton();
         stakeholdersRegistrationPage.clickOnGovernorate();
         String governorate = String.valueOf("governorate Auto " + functions.getRandomNameEnglish());
         stakeholdersRegistrationPage.fillInGovernorate(governorate);
+        driver.navigate().back();
+        stakeholdersRegistrationPage.clickOnAddress();
+        String address = String.valueOf("address Auto" + functions.getRandomNameEnglish());
+        stakeholdersRegistrationPage.fillInAddress(address);
+        driver.navigate().back();
         stakeholdersRegistrationPage.clickOnNextButton();
     }
     public void uploadStakeholderRegistrationAttachments(int AttachmentFlag) throws IOException, InterruptedException {
         StakeholdersRegistrationPage stakeholdersRegistrationPage = new StakeholdersRegistrationPage(driver);
+
         //attachment 1
         stakeholdersRegistrationPage.clickOnaAttachment1();
         stakeholdersRegistrationPage.clickOnChooseFromGallery();
+        stakeholdersRegistrationPage.clickOnAllowButton();
         stakeholdersRegistrationPage.clickOnChooseAttachments();
         stakeholdersRegistrationPage.clickOnNextButton();
         //attachment 2
         stakeholdersRegistrationPage.clickOnaAttachment1();
         stakeholdersRegistrationPage.clickOnChooseFromGallery();
         stakeholdersRegistrationPage.clickOnChooseAttachments();
-        if (AttachmentFlag==1) {
-            stakeholdersRegistrationPage.clickOnNextButton();
-            //attachment 3
-            stakeholdersRegistrationPage.clickOnaAttachment1();
-            stakeholdersRegistrationPage.clickOnChooseFromGallery();
-            stakeholdersRegistrationPage.clickOnChooseAttachments();
-        }
+        if (AttachmentFlag == 1) {
+             stakeholdersRegistrationPage.clickOnNextButton();
+             //attachment 3
+             stakeholdersRegistrationPage.clickOnaAttachment1();
+             stakeholdersRegistrationPage.clickOnChooseFromGallery();
+             stakeholdersRegistrationPage.clickOnChooseAttachments();
+            }
         stakeholdersRegistrationPage.clickOnDoneButton();
         stakeholdersRegistrationPage.clickOnRegisterButton();
         stakeholdersRegistrationPage.clickOnBackToHomePage();
-    }
+        }
     public void fillInTruckingCompanyLoginInfo () throws InterruptedException, IOException {
         StakeholdersRegistrationPage stakeholdersRegistrationPage = new StakeholdersRegistrationPage(driver);
         DataLoader dataLoader = new DataLoader();
 
+        Thread.sleep(1000);
         TouchAction touchAction = new TouchAction(driver);
-        touchAction.tap(PointOption.point(899, 1532)).perform();
+        touchAction.tap(PointOption.point(464, 812)).perform();
         stakeholdersRegistrationPage.clickOnPhoneNumberField();
         stakeholdersRegistrationPage.fillInPhoneNumberField().sendKeys(dataLoader.credentialsData("truckingCompanyUser"));
         stakeholdersRegistrationPage.clickOnLoginPasswordField();
         stakeholdersRegistrationPage.fillInLoginPasswordField(dataLoader.credentialsData("truckingCompanyPass"));
+        driver.navigate().back();
+        stakeholdersRegistrationPage.clickOnLoginButton();
+    }
+    public void fillInTruckingServiceIndividualLoginInfo () throws InterruptedException, IOException {
+        StakeholdersRegistrationPage stakeholdersRegistrationPage = new StakeholdersRegistrationPage(driver);
+        DataLoader dataLoader = new DataLoader();
+
+        Thread.sleep(1000);
+        TouchAction touchAction = new TouchAction(driver);
+        touchAction.tap(PointOption.point(464, 812)).perform();
+        stakeholdersRegistrationPage.clickOnPhoneNumberField();
+        stakeholdersRegistrationPage.fillInPhoneNumberField().sendKeys(dataLoader.credentialsData("truckingServiceIndividualUser"));
+        stakeholdersRegistrationPage.clickOnLoginPasswordField();
+        stakeholdersRegistrationPage.fillInLoginPasswordField(dataLoader.credentialsData("truckingServiceIndividualPass"));
+        driver.navigate().back();
+        stakeholdersRegistrationPage.clickOnLoginButton();
+    }
+    public void fillInCargoOwnerLoginInfo () throws InterruptedException, IOException {
+        StakeholdersRegistrationPage stakeholdersRegistrationPage = new StakeholdersRegistrationPage(driver);
+        DataLoader dataLoader = new DataLoader();
+
+        Thread.sleep(1000);
+        TouchAction touchAction = new TouchAction(driver);
+        touchAction.tap(PointOption.point(464, 812)).perform();
+        stakeholdersRegistrationPage.clickOnPhoneNumberField();
+        stakeholdersRegistrationPage.fillInPhoneNumberField().sendKeys(dataLoader.credentialsData("CargoOwnerUser"));
+        stakeholdersRegistrationPage.clickOnLoginPasswordField();
+        stakeholdersRegistrationPage.fillInLoginPasswordField(dataLoader.credentialsData("CargoOwnerPass"));
+        driver.navigate().back();
+        stakeholdersRegistrationPage.clickOnLoginButton();
+    }
+    public void fillInCargoOwnerIndividualLoginInfo () throws InterruptedException, IOException {
+        StakeholdersRegistrationPage stakeholdersRegistrationPage = new StakeholdersRegistrationPage(driver);
+        DataLoader dataLoader = new DataLoader();
+
+        Thread.sleep(1000);
+        TouchAction touchAction = new TouchAction(driver);
+        touchAction.tap(PointOption.point(464, 812)).perform();
+        stakeholdersRegistrationPage.clickOnPhoneNumberField();
+        stakeholdersRegistrationPage.fillInPhoneNumberField().sendKeys(dataLoader.credentialsData("CargoOwnerIndividualUser"));
+        stakeholdersRegistrationPage.clickOnLoginPasswordField();
+        stakeholdersRegistrationPage.fillInLoginPasswordField(dataLoader.credentialsData("CargoOwnerIndividualPass"));
         driver.navigate().back();
         stakeholdersRegistrationPage.clickOnLoginButton();
     }
@@ -184,7 +234,7 @@ public class StakeholderRegistrationSteps  extends AndroidConfigurations {
 
 
         TouchAction touchAction = new TouchAction(driver);
-        touchAction.tap(PointOption.point(899, 1532)).perform();
+        touchAction.tap(PointOption.point(464, 812)).perform();
         stakeholdersRegistrationPage.clickOnPhoneNumberField();
         stakeholdersRegistrationPage.fillInPhoneNumberField().sendKeys(dataLoader.credentialsData("freightForwardingUser"));
         stakeholdersRegistrationPage.clickOnLoginPasswordField();
@@ -192,12 +242,25 @@ public class StakeholderRegistrationSteps  extends AndroidConfigurations {
         driver.navigate().back();
         stakeholdersRegistrationPage.clickOnLoginButton();
     }
+    public void fillInClearanceAgentLoginInfo () throws InterruptedException, IOException {
+        StakeholdersRegistrationPage stakeholdersRegistrationPage = new StakeholdersRegistrationPage(driver);
+        DataLoader dataLoader = new DataLoader();
 
+
+        TouchAction touchAction = new TouchAction(driver);
+        touchAction.tap(PointOption.point(464, 812)).perform();
+        stakeholdersRegistrationPage.clickOnPhoneNumberField();
+        stakeholdersRegistrationPage.fillInPhoneNumberField().sendKeys(dataLoader.credentialsData("ClearanceAgentUser"));
+        stakeholdersRegistrationPage.clickOnLoginPasswordField();
+        stakeholdersRegistrationPage.fillInLoginPasswordField(dataLoader.credentialsData("ClearanceAgentPass"));
+        driver.navigate().back();
+        stakeholdersRegistrationPage.clickOnLoginButton();
+    }
     public void fillInCargoLoginInfo () throws InterruptedException, IOException {
         StakeholdersRegistrationPage stakeholdersRegistrationPage = new StakeholdersRegistrationPage(driver);
         DataLoader dataLoader = new DataLoader();
 
-        touchAction.tap(PointOption.point(899, 1532)).perform();
+        touchAction.tap(PointOption.point(464, 812)).perform();
         stakeholdersRegistrationPage.clickOnPhoneNumberField();
         stakeholdersRegistrationPage.fillInPhoneNumberField().sendKeys(dataLoader.credentialsData("CargoUser"));
         stakeholdersRegistrationPage.clickOnLoginPasswordField();
@@ -214,30 +277,46 @@ public class StakeholderRegistrationSteps  extends AndroidConfigurations {
     public  void fillAllServicesSettingsInfo () throws InterruptedException {
         StakeholdersRegistrationPage stakeholdersRegistrationPage = new StakeholdersRegistrationPage(driver);
 
-        stakeholdersRegistrationPage.clickOnaAttachment1();
+        stakeholdersRegistrationPage.clickOnaAttachment();
         stakeholdersRegistrationPage.clickOnChooseFromGallery();
         stakeholdersRegistrationPage.clickOnChooseAttachments();
-        touchAction.press(PointOption.point(321, 2713)).moveTo(PointOption.point(578, 1147)).release().perform();
+        touchAction.press(PointOption.point(43, 1431)).moveTo(PointOption.point(578, 1147)).release().perform();
         stakeholdersRegistrationPage.clickOnaCompanyLocationOnTheMap();
         stakeholdersRegistrationPage.clickOnAllowLocation();
+        Thread.sleep(3000);
         stakeholdersRegistrationPage.clickConfirmTheLocation();
         stakeholdersRegistrationPage.clickOnSaveSetting();
+        Thread.sleep(2000);
     }
-    public void navigateToSearchPage() {
+    public void navigateToSearchPage(int SearchCategory) throws IOException, InterruptedException {
         StakeholdersRegistrationPage stakeholdersRegistrationPage = new StakeholdersRegistrationPage(driver);
 
         stakeholdersRegistrationPage.clickOnSearchPage();
+        switch (SearchCategory) {
+            case 1:
+                stakeholdersRegistrationPage.clickOnClearanceServices();
+                break;
+            case 2:
+                stakeholdersRegistrationPage.clickOnForwardingServices();
+                break;
+            case 3:
+                stakeholdersRegistrationPage.clickOnInsuranceServices();
+                break;
+        }
     }
-    public void fillAllForwardingServicesSearchCategoryInfo() {
+    public void fillAllServicesSearchCategoryInfo() throws InterruptedException, IOException{
         StakeholdersRegistrationPage stakeholdersRegistrationPage = new StakeholdersRegistrationPage(driver);
 
-        stakeholdersRegistrationPage.clickOnForwardingServices();
+
         stakeholdersRegistrationPage.clickOnCategoryButton();
         stakeholdersRegistrationPage.clickOnAirFrightTypeButton();
-        touchAction.tap(PointOption.point(655, 1129)).perform();
+        Thread.sleep(100);
+        touchAction.tap(PointOption.point(315, 531)).perform();
         stakeholdersRegistrationPage.clickOnAllowLocation();
-        touchAction.tap(PointOption.point(1255, 840)).perform();
+        Thread.sleep(5000);
+        touchAction.tap(PointOption.point(647, 403)).perform();
         stakeholdersRegistrationPage.clickOnShowResultButton();
+        Thread.sleep(5000);
     }
     public void fillAllTruckingServicesSearchCategoryInfo() throws InterruptedException {
         StakeholdersRegistrationPage stakeholdersRegistrationPage = new StakeholdersRegistrationPage(driver);
@@ -250,17 +329,17 @@ public class StakeholderRegistrationSteps  extends AndroidConfigurations {
         stakeholdersRegistrationPage.clickOnSelectUsageTypeButton();
         stakeholdersRegistrationPage.clickOnChooseButton();
         stakeholdersRegistrationPage.clickOnNumberOfAxlesButton();
-        touchAction.tap(PointOption.point(650, 2406)).perform();
+        touchAction.tap(PointOption.point(315, 1191)).perform();
         stakeholdersRegistrationPage.clickOnAllowLocation();
         stakeholdersRegistrationPage.clickOnSeekBar();
-        touchAction.tap(PointOption.point(1160, 2135)).perform();
         Thread.sleep(1000);
+        touchAction.tap(PointOption.point(639, 1061)).perform();
         stakeholdersRegistrationPage.clickOnShowResultButton();
-        Thread.sleep(10000);
-//        stakeholdersRegistrationPage.clickOnSearchBox();
-        touchAction.tap(PointOption.point(172, 456)).perform();
-        stakeholdersRegistrationPage.clickOnChooseFromSearchBox();
-        Thread.sleep(10000);
+        Thread.sleep(500);
+       //  stakeholdersRegistrationPage.clickOnSearchBox();
+        touchAction.tap(PointOption.point(244, 208)).perform();
+        touchAction.tap(PointOption.point(54, 381)).perform();
+         Thread.sleep(2000);
 
     }
 }

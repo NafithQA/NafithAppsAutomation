@@ -11,7 +11,7 @@ public class DatabaseHandler {
     public static void main(String[] args) {
 
         DatabaseHandler databaseHandler = new DatabaseHandler();
-        ArrayList<String> testData = databaseHandler.getIdFromDataBase(OtherQueries.getTcTrucks());
+        ArrayList<String> testData = databaseHandler.getIdFromDataBase(OtherQueries.getNewTrucksTC());
         System.out.println(testData.get(0));
     }
 

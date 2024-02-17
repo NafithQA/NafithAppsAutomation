@@ -7,10 +7,11 @@ import commonSteps.StakeholderRegistrationSteps;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
-public class TruckingCompanyFleetRegistrationTests extends AndroidConfigurations {
+
+public class TruckingServiceIndividualFleetRegistrationTests extends AndroidConfigurations {
 
     @Test(enabled = false)
-    public void TruckingCompany_External_Registration() throws InterruptedException, IOException {
+    public void TruckingServiceIndividual_External_Registration() throws InterruptedException, IOException {
         StakeholderRegistrationSteps stakeholderRegistrationSteps = new StakeholderRegistrationSteps(driver);
 
         // navigate to Registration Page
@@ -20,12 +21,12 @@ public class TruckingCompanyFleetRegistrationTests extends AndroidConfigurations
         stakeholderRegistrationSteps.fillInRoleRegistrationButton();
 
         // Fill-In Trucking Company Registration Info
-         stakeholderRegistrationSteps.fillInRoleRegistrationInfo(1);
+        stakeholderRegistrationSteps.fillInRoleRegistrationInfo(6);
 
         // Upload Attachments
-        stakeholderRegistrationSteps.uploadStakeholderRegistrationAttachments(1);
+        stakeholderRegistrationSteps.uploadStakeholderRegistrationAttachments(2);
 
-        // Navigate to registration Steps By Admin Apis
+        // Navigate to  registration Steps By Admin Apis
         ApiHandler.RegistrationExternalStakeholder() ;
     }
     @Test(enabled = false)
@@ -37,7 +38,7 @@ public class TruckingCompanyFleetRegistrationTests extends AndroidConfigurations
         stakeholderRegistrationSteps.navigateToRegistrationPage(1, true);
 
         // Fill-In Trucking Company Login Info
-        stakeholderRegistrationSteps.fillInTruckingCompanyLoginInfo();
+        stakeholderRegistrationSteps.fillInTruckingServiceIndividualLoginInfo();
 
         //Navigate to Fleet Registration Page
         fleetRegistrationSteps.navigateToFleetTruckRegistrationPage();
@@ -63,7 +64,7 @@ public class TruckingCompanyFleetRegistrationTests extends AndroidConfigurations
         stakeholderRegistrationSteps.navigateToRegistrationPage(1, true);
 
         // Fill-In Trucking Company Login Info
-        stakeholderRegistrationSteps.fillInTruckingCompanyLoginInfo();
+        stakeholderRegistrationSteps.fillInTruckingServiceIndividualLoginInfo();
 
         //Navigate to Fleet Registration Page
         fleetRegistrationSteps.navigateToFleetTrailersRegistrationPage();
@@ -89,7 +90,7 @@ public class TruckingCompanyFleetRegistrationTests extends AndroidConfigurations
         stakeholderRegistrationSteps.navigateToRegistrationPage(1, true);
 
         // Fill-In Trucking Company Login Info
-        stakeholderRegistrationSteps.fillInTruckingCompanyLoginInfo();
+        stakeholderRegistrationSteps.fillInTruckingServiceIndividualLoginInfo();
 
         //Navigate to Fleet Registration Page
         fleetRegistrationSteps.navigateToFleetEquipmentRegistrationPage();
@@ -106,7 +107,7 @@ public class TruckingCompanyFleetRegistrationTests extends AndroidConfigurations
         // Navigate to Equipment Complete registration Steps By Admin Apis
         ApiHandler.EquipmentRegistration() ;
     }
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void TruckingCompany_Search_Services_With_Distance() throws IOException, InterruptedException {
         FleetRegistrationSteps fleetRegistrationSteps = new FleetRegistrationSteps(driver);
         StakeholderRegistrationSteps stakeholderRegistrationSteps = new StakeholderRegistrationSteps(driver);
@@ -115,7 +116,7 @@ public class TruckingCompanyFleetRegistrationTests extends AndroidConfigurations
         stakeholderRegistrationSteps.navigateToRegistrationPage(1, true);
 
         // Fill-In Trucking Company Login Info
-        stakeholderRegistrationSteps.fillInTruckingCompanyLoginInfo();
+        stakeholderRegistrationSteps.fillInTruckingServiceIndividualLoginInfo();
 
         // navigate to Search Page
         stakeholderRegistrationSteps.navigateToSearchPage(0);
@@ -123,7 +124,7 @@ public class TruckingCompanyFleetRegistrationTests extends AndroidConfigurations
         // navigate to Registration Page
         stakeholderRegistrationSteps.fillAllTruckingServicesSearchCategoryInfo();
     }
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void Insurance_Service_Search_Category() throws IOException, InterruptedException {
         StakeholderRegistrationSteps stakeholderRegistrationSteps = new StakeholderRegistrationSteps(driver);
 
@@ -131,7 +132,7 @@ public class TruckingCompanyFleetRegistrationTests extends AndroidConfigurations
         stakeholderRegistrationSteps.navigateToRegistrationPage(1,true);
 
         // Fill-In Freight Forwarding  Login Info
-        stakeholderRegistrationSteps.fillInTruckingCompanyLoginInfo();
+        stakeholderRegistrationSteps.fillInTruckingServiceIndividualLoginInfo();
 
         // navigate to Search Page
         stakeholderRegistrationSteps.navigateToSearchPage(3);
@@ -141,7 +142,7 @@ public class TruckingCompanyFleetRegistrationTests extends AndroidConfigurations
 
         Thread.sleep(1000);
     }
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void Clearance_Service_Search_Category() throws IOException, InterruptedException {
         StakeholderRegistrationSteps stakeholderRegistrationSteps = new StakeholderRegistrationSteps(driver);
 
@@ -149,7 +150,7 @@ public class TruckingCompanyFleetRegistrationTests extends AndroidConfigurations
         stakeholderRegistrationSteps.navigateToRegistrationPage(1, true);
 
         // Fill-In Cargo Login Info
-        stakeholderRegistrationSteps.fillInTruckingCompanyLoginInfo();
+        stakeholderRegistrationSteps.fillInTruckingServiceIndividualLoginInfo();
 
         // navigate to Search Page
         stakeholderRegistrationSteps.navigateToSearchPage(1);
@@ -167,7 +168,7 @@ public class TruckingCompanyFleetRegistrationTests extends AndroidConfigurations
         stakeholderRegistrationSteps.navigateToRegistrationPage(1,true);
 
         // Fill-In Trucking Company Login Info
-        stakeholderRegistrationSteps.fillInTruckingCompanyLoginInfo();
+        stakeholderRegistrationSteps.fillInTruckingServiceIndividualLoginInfo();
 
         // navigate to Search Page
         stakeholderRegistrationSteps.navigateToSearchPage(2);

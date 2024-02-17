@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite" preserve-order="true">
-
     <listeners>
         <listener class-name="helpers.Listeners"/>
         <listener class-name="helpers.ExtentReporterNG"/>
     </listeners>
-
     <test name="Android Tests" preserve-order="true">
         <classes>
             <class name="base.AndroidConfigurations"/>
+<!--            <class name="fleetRegistrationTests.TruckingCompanyFleetRegistrationTests"/>-->
+<!--            <class name="fleetRegistrationTests.CargoInsuranceFleetRegistrationTests"/>-->
+<!--            <class name="fleetRegistrationTests.FreightForwardingFleetRegistrationTests"/>-->
+<!--            <class name="fleetRegistrationTests.ClearanceServiceRegistrationTests"/>-->
+<!--            <class name="fleetRegistrationTests.CargoOwnerFleetRegistrationTests"/>-->
+<!--                <class name="fleetRegistrationTests.TruckingServiceIndividualFleetRegistrationTests"/>-->
+       <class name="fleetRegistrationTests.CargoOwnerIndividualTests"/>
+
 <!--            <class name="stakeholdersRegistrationTests.StakeholdersRegistrationTests"/>-->
-             <class name="fleetRegistrationTests.TruckingCompanyFleetRegistrationTests"/>
+<!--           <class name="randomTests.testClass"/>-->
+
         </classes>
     </test>
 </suite> 

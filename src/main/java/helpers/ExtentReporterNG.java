@@ -24,7 +24,7 @@ public class ExtentReporterNG implements IReporter, ITestListener {
 
     public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites, String outputDirectory) {
 
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy_MM_dd_HH_mm");
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy_MM_dd_HH");
         LocalDateTime now = LocalDateTime.now();
 
         htmlReporter = new ExtentSparkReporter(System.getProperty("user.dir") + File.separator + "test-output"

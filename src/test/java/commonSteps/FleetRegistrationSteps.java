@@ -40,9 +40,10 @@ public class FleetRegistrationSteps  extends AndroidConfigurations {
         TouchAction touchAction = new TouchAction(driver);
         Functions functions = new Functions();
 
+        Thread.sleep(1000);
         fleetRegistrationPage.clickOnVehicleNationalityDropDownList();
         fleetRegistrationPage.clickOnJordanCountryCodeButton();
-        touchAction.tap(PointOption.point(156, 1000)).perform();
+        touchAction.tap(PointOption.point(92, 478)).perform();
         fleetRegistrationPage.clickOnDatePicker();
         fleetRegistrationPage.clickOnChooseDateButton();
         fleetRegistrationPage.clickOnNextButton();
@@ -101,6 +102,10 @@ public class FleetRegistrationSteps  extends AndroidConfigurations {
     }
     public void uploadFleetRegistrationAttachments() throws IOException, InterruptedException {
         StakeholdersRegistrationPage stakeholdersRegistrationPage = new StakeholdersRegistrationPage(driver);
+
+        stakeholdersRegistrationPage.clickOnAllowButton();
+        Thread.sleep(1000);
+        stakeholdersRegistrationPage.clickOnDenyAllowButton();
         //attachment 1
         stakeholdersRegistrationPage.clickOnaAttachment1();
         stakeholdersRegistrationPage.clickOnChooseFromGallery();
