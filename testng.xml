@@ -13,8 +13,8 @@
 <!--            <class name="fleetRegistrationTests.FreightForwardingFleetRegistrationTests"/>-->
 <!--            <class name="fleetRegistrationTests.ClearanceServiceRegistrationTests"/>-->
 <!--            <class name="fleetRegistrationTests.CargoOwnerFleetRegistrationTests"/>-->
-<!--                <class name="fleetRegistrationTests.TruckingServiceIndividualFleetRegistrationTests"/>-->
-       <class name="fleetRegistrationTests.CargoOwnerIndividualTests"/>
+            <class name="fleetRegistrationTests.TruckingServiceIndividualFleetRegistrationTests"/>
+<!--       <class name="fleetRegistrationTests.CargoOwnerIndividualTests"/>-->
 
 <!--            <class name="stakeholdersRegistrationTests.StakeholdersRegistrationTests"/>-->
 <!--           <class name="randomTests.testClass"/>-->

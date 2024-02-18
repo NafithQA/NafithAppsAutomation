@@ -52,7 +52,7 @@ public class TruckingCompanyFleetRegistrationTests extends AndroidConfigurations
         fleetRegistrationSteps.navigateCompleteTruckRegistrationPage();
 
         // Navigate to Truck Complete registration Steps By Admin Apis
-        ApiHandler.TrucksRegistration() ;
+        ApiHandler.TrucksRegistrationTC();
     } 
     @Test(enabled = false)
     public void TruckingCompany_Registration_Trailer() throws IOException, InterruptedException {
@@ -78,7 +78,7 @@ public class TruckingCompanyFleetRegistrationTests extends AndroidConfigurations
         fleetRegistrationSteps.navigateCompleteTrailerRegistrationPage();
 
         // Navigate to Trailer Complete registration Steps By Admin Apis
-        ApiHandler.TrailerRegistration() ;
+        ApiHandler.TrailerRegistrationTC();
     }
     @Test(enabled = false)
     public void TruckingCompany_Registration_Equipment() throws IOException, InterruptedException {
@@ -104,7 +104,7 @@ public class TruckingCompanyFleetRegistrationTests extends AndroidConfigurations
         fleetRegistrationSteps.navigateCompleteEquipmentRegistrationPage();
 
         // Navigate to Equipment Complete registration Steps By Admin Apis
-        ApiHandler.EquipmentRegistration() ;
+        ApiHandler.EquipmentRegistrationTC(); ;
     }
     @Test(enabled = false)
     public void TruckingCompany_Search_Services_With_Distance() throws IOException, InterruptedException {

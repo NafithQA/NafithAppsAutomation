@@ -11,24 +11,41 @@ public class ApiHandler {
     static String token;
     public static void main(String[] args) {
         adminLogin();
-        adminReviewStakeholder();
-        acceptReviewStakeholder();
+        adminReviewTrucksOwner();
+        acceptReviewTrucksOwner();
     }
-    public static void TrucksRegistration() {
+    public static void TrucksRegistrationTC() {
         adminLogin();
-        adminReviewTrucks();
-        acceptReviewTrucks();
+        adminReviewTrucksTC();
+        acceptReviewTrucksTC();
     }
-    public static void TrailerRegistration() {
+    public static void TrailerRegistrationTC() {
         adminLogin();
-        adminReviewTrailers();
-        acceptReviewTrailers();
+        adminReviewTrailersTC();
+        acceptReviewTrailersTC();
     }
-    public static void EquipmentRegistration() {
+    public static void EquipmentRegistrationTC() {
         adminLogin();
-        adminReviewEquipment();
-        acceptReviewEquipment();
+        adminReviewEquipmentTC();
+        acceptReviewEquipmentTC();
     }
+
+    public static void TrucksRegistrationOwner() {
+        adminLogin();
+        adminReviewTrucksOwner();
+        acceptReviewTrucksOwner();
+    }
+    public static void TrailerRegistrationOwner() {
+        adminLogin();
+        adminReviewTrailersOwner();
+        acceptReviewTrailersOwner();
+    }
+    public static void EquipmentRegistrationOwner() {
+        adminLogin();
+        adminReviewEquipmentOwner();
+        acceptReviewEquipmentOwner();
+    }
+
     public static void RegistrationExternalStakeholder() {
         adminLogin();
         adminReviewStakeholder();
@@ -65,7 +82,7 @@ public class ApiHandler {
         RestAssured.baseURI = "http://82.212.90.190:8082/webGateway/"; // Set your base URL here
 
         DatabaseHandler databaseHandler = new DatabaseHandler();
-        ArrayList<String> testData = databaseHandler.getIdFromDataBase(OtherQueries.getNewStakeholdersTC());
+        ArrayList<String> testData = databaseHandler.getIdFromDataBase(OtherQueries.getNewStakeholders());
         String id = testData.get(0);
 
         // JSON payload
@@ -88,7 +105,7 @@ public class ApiHandler {
         RestAssured.baseURI = "http://82.212.90.190:8082/webGateway/"; // Set your base URL here
 
         DatabaseHandler databaseHandler = new DatabaseHandler();
-        ArrayList<String> testData = databaseHandler.getIdFromDataBase(OtherQueries.getUnderReviewStakeholdersTC());
+        ArrayList<String> testData = databaseHandler.getIdFromDataBase(OtherQueries.getUnderReviewStakeholders());
         String id = testData.get(0);
         // JSON payload
         String requestBody = "{\"id\": \"" + id + "\"}";
@@ -103,30 +120,31 @@ public class ApiHandler {
         System.out.println("Status Code: " + statusCode);
         System.out.println("Response Body: " + responseBody);
     }
-    public static void adminReviewTrucks() {
+    public static void adminReviewTrucksTC( ) {
 
         RestAssured.baseURI = "http://82.212.90.190:8082/webGateway/"; // Set your base URL here
 
         DatabaseHandler databaseHandler = new DatabaseHandler();
-        ArrayList<String> testData = databaseHandler.getIdFromDataBase(OtherQueries.getNewTrucksTC());
-        String id = testData.get(0);
+            ArrayList<String> testData = databaseHandler.getIdFromDataBase(OtherQueries.getNewTrucksTC());
+            String id = testData.get(0);
 
-        // JSON payload
-        String requestBody = "{\"id\": \"" + id + "\"}";
+            // JSON payload
+            String requestBody = "{\"id\": \"" + id + "\"}";
 
-        Response response = RestAssured.given()
-                .header("Content-Type", "application/json")
-                .header("Authorization", "Bearer " + token)
-                .body(requestBody)
-                .put("Fleets/Review");
+            Response response = RestAssured.given()
+                    .header("Content-Type", "application/json")
+                    .header("Authorization", "Bearer " + token)
+                    .body(requestBody)
+                    .put("Fleets/Review");
 
-        int statusCode = response.getStatusCode();
-        String responseBody = response.getBody().asString();
+            int statusCode = response.getStatusCode();
+            String responseBody = response.getBody().asString();
 
-        System.out.println("Status Code: " + statusCode);
-        System.out.println("Response Body: " + responseBody);
+            System.out.println("Status Code: " + statusCode);
+            System.out.println("Response Body: " + responseBody);
+
     }
-    public static void acceptReviewTrucks() {
+    public static void acceptReviewTrucksTC() {
 
         RestAssured.baseURI = "http://82.212.90.190:8082/webGateway/"; // Set your base URL here
 
@@ -146,7 +164,7 @@ public class ApiHandler {
         System.out.println("Status Code: " + statusCode);
         System.out.println("Response Body: " + responseBody);
     }
-    public static void adminReviewTrailers() {
+    public static void adminReviewTrailersTC() {
 
         RestAssured.baseURI = "http://82.212.90.190:8082/webGateway/"; // Set your base URL here
 
@@ -169,7 +187,7 @@ public class ApiHandler {
         System.out.println("Status Code: " + statusCode);
         System.out.println("Response Body: " + responseBody);
     }
-    public static void acceptReviewTrailers() {
+    public static void acceptReviewTrailersTC() {
 
         RestAssured.baseURI = "http://82.212.90.190:8082/webGateway/"; // Set your base URL here
 
@@ -189,7 +207,7 @@ public class ApiHandler {
         System.out.println("Status Code: " + statusCode);
         System.out.println("Response Body: " + responseBody);
     }
-    public static void adminReviewEquipment() {
+    public static void adminReviewEquipmentTC() {
 
         RestAssured.baseURI = "http://82.212.90.190:8082/webGateway/"; // Set your base URL here
 
@@ -212,12 +230,143 @@ public class ApiHandler {
         System.out.println("Status Code: " + statusCode);
         System.out.println("Response Body: " + responseBody);
     }
-    public static void acceptReviewEquipment() {
+    public static void acceptReviewEquipmentTC() {
 
         RestAssured.baseURI = "http://82.212.90.190:8082/webGateway/"; // Set your base URL here
 
         DatabaseHandler databaseHandler = new DatabaseHandler();
         ArrayList<String> testData = databaseHandler.getIdFromDataBase(OtherQueries.getUnderReviewEquipmentTC());
+        String id = testData.get(0);
+        // JSON payload
+        String requestBody = "{\"id\": \"" + id + "\"}";
+        Response response = RestAssured.given()
+                .header("Authorization", "Bearer " + token)
+                .header("Content-Type", "application/json")
+                .body(requestBody)
+                .put("Fleets/Accept");
+        int statusCode = response.getStatusCode();
+        String responseBody = response.getBody().asString();
+
+        System.out.println("Status Code: " + statusCode);
+        System.out.println("Response Body: " + responseBody);
+    }
+
+    public static void adminReviewTrucksOwner( ) {
+
+        RestAssured.baseURI = "http://82.212.90.190:8082/webGateway/"; // Set your base URL here
+
+        DatabaseHandler databaseHandler = new DatabaseHandler();
+        ArrayList<String> testData = databaseHandler.getIdFromDataBase(OtherQueries.getNewTrucksOwner());
+        String id = testData.get(0);
+
+        // JSON payload
+        String requestBody = "{\"id\": \"" + id + "\"}";
+
+        Response response = RestAssured.given()
+                .header("Content-Type", "application/json")
+                .header("Authorization", "Bearer " + token)
+                .body(requestBody)
+                .put("Fleets/Review");
+
+        int statusCode = response.getStatusCode();
+        String responseBody = response.getBody().asString();
+
+        System.out.println("Status Code: " + statusCode);
+        System.out.println("Response Body: " + responseBody);
+
+    }
+    public static void acceptReviewTrucksOwner() {
+
+        RestAssured.baseURI = "http://82.212.90.190:8082/webGateway/"; // Set your base URL here
+
+        DatabaseHandler databaseHandler = new DatabaseHandler();
+        ArrayList<String> testData = databaseHandler.getIdFromDataBase(OtherQueries.getUnderReviewTrucksOwner());
+        String id = testData.get(0);
+        // JSON payload
+        String requestBody = "{\"id\": \"" + id + "\"}";
+        Response response = RestAssured.given()
+                .header("Authorization", "Bearer " + token)
+                .header("Content-Type", "application/json")
+                .body(requestBody)
+                .put("Fleets/Accept");
+        int statusCode = response.getStatusCode();
+        String responseBody = response.getBody().asString();
+
+        System.out.println("Status Code: " + statusCode);
+        System.out.println("Response Body: " + responseBody);
+    }
+    public static void adminReviewTrailersOwner() {
+
+        RestAssured.baseURI = "http://82.212.90.190:8082/webGateway/"; // Set your base URL here
+
+        DatabaseHandler databaseHandler = new DatabaseHandler();
+        ArrayList<String> testData = databaseHandler.getIdFromDataBase(OtherQueries.getNewTrailersOwner());
+        String id = testData.get(0);
+
+        // JSON payload
+        String requestBody = "{\"id\": \"" + id + "\"}";
+
+        Response response = RestAssured.given()
+                .header("Content-Type", "application/json")
+                .header("Authorization", "Bearer " + token)
+                .body(requestBody)
+                .put("Fleets/Review");
+
+        int statusCode = response.getStatusCode();
+        String responseBody = response.getBody().asString();
+
+        System.out.println("Status Code: " + statusCode);
+        System.out.println("Response Body: " + responseBody);
+    }
+    public static void acceptReviewTrailersOwner() {
+
+        RestAssured.baseURI = "http://82.212.90.190:8082/webGateway/"; // Set your base URL here
+
+        DatabaseHandler databaseHandler = new DatabaseHandler();
+        ArrayList<String> testData = databaseHandler.getIdFromDataBase(OtherQueries.getUnderReviewTrailersOwner());
+        String id = testData.get(0);
+        // JSON payload
+        String requestBody = "{\"id\": \"" + id + "\"}";
+        Response response = RestAssured.given()
+                .header("Authorization", "Bearer " + token)
+                .header("Content-Type", "application/json")
+                .body(requestBody)
+                .put("Fleets/Accept");
+        int statusCode = response.getStatusCode();
+        String responseBody = response.getBody().asString();
+
+        System.out.println("Status Code: " + statusCode);
+        System.out.println("Response Body: " + responseBody);
+    }
+    public static void adminReviewEquipmentOwner() {
+
+        RestAssured.baseURI = "http://82.212.90.190:8082/webGateway/"; // Set your base URL here
+
+        DatabaseHandler databaseHandler = new DatabaseHandler();
+        ArrayList<String> testData = databaseHandler.getIdFromDataBase(OtherQueries.getNewEquipmentOwner());
+        String id = testData.get(0);
+
+        // JSON payload
+        String requestBody = "{\"id\": \"" + id + "\"}";
+
+        Response response = RestAssured.given()
+                .header("Content-Type", "application/json")
+                .header("Authorization", "Bearer " + token)
+                .body(requestBody)
+                .put("Fleets/Review");
+
+        int statusCode = response.getStatusCode();
+        String responseBody = response.getBody().asString();
+
+        System.out.println("Status Code: " + statusCode);
+        System.out.println("Response Body: " + responseBody);
+    }
+    public static void acceptReviewEquipmentOwner() {
+
+        RestAssured.baseURI = "http://82.212.90.190:8082/webGateway/"; // Set your base URL here
+
+        DatabaseHandler databaseHandler = new DatabaseHandler();
+        ArrayList<String> testData = databaseHandler.getIdFromDataBase(OtherQueries.getUnderReviewEquipmentOwner());
         String id = testData.get(0);
         // JSON payload
         String requestBody = "{\"id\": \"" + id + "\"}";

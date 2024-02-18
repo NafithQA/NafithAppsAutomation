@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class TruckingServiceIndividualFleetRegistrationTests extends AndroidConfigurations {
 
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void TruckingServiceIndividual_External_Registration() throws InterruptedException, IOException {
         StakeholderRegistrationSteps stakeholderRegistrationSteps = new StakeholderRegistrationSteps(driver);
 
@@ -29,7 +29,7 @@ public class TruckingServiceIndividualFleetRegistrationTests extends AndroidConf
         // Navigate to  registration Steps By Admin Apis
         ApiHandler.RegistrationExternalStakeholder() ;
     }
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void TruckingCompany_Registration_Truck() throws IOException, InterruptedException {
         FleetRegistrationSteps fleetRegistrationSteps = new FleetRegistrationSteps(driver);
         StakeholderRegistrationSteps stakeholderRegistrationSteps = new StakeholderRegistrationSteps(driver);
@@ -53,9 +53,9 @@ public class TruckingServiceIndividualFleetRegistrationTests extends AndroidConf
         fleetRegistrationSteps.navigateCompleteTruckRegistrationPage();
 
         // Navigate to Truck Complete registration Steps By Admin Apis
-        ApiHandler.TrucksRegistration() ;
+        ApiHandler.TrucksRegistrationOwner() ;
     } 
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void TruckingCompany_Registration_Trailer() throws IOException, InterruptedException {
         FleetRegistrationSteps fleetRegistrationSteps = new FleetRegistrationSteps(driver);
         StakeholderRegistrationSteps stakeholderRegistrationSteps = new StakeholderRegistrationSteps(driver);
@@ -79,9 +79,9 @@ public class TruckingServiceIndividualFleetRegistrationTests extends AndroidConf
         fleetRegistrationSteps.navigateCompleteTrailerRegistrationPage();
 
         // Navigate to Trailer Complete registration Steps By Admin Apis
-        ApiHandler.TrailerRegistration() ;
+        ApiHandler.TrailerRegistrationOwner() ;
     }
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void TruckingCompany_Registration_Equipment() throws IOException, InterruptedException {
         FleetRegistrationSteps fleetRegistrationSteps = new FleetRegistrationSteps(driver);
         StakeholderRegistrationSteps stakeholderRegistrationSteps = new StakeholderRegistrationSteps(driver);
@@ -105,7 +105,7 @@ public class TruckingServiceIndividualFleetRegistrationTests extends AndroidConf
         fleetRegistrationSteps.navigateCompleteEquipmentRegistrationPage();
 
         // Navigate to Equipment Complete registration Steps By Admin Apis
-        ApiHandler.EquipmentRegistration() ;
+        ApiHandler.EquipmentRegistrationOwner() ;
     }
     @Test(enabled = true)
     public void TruckingCompany_Search_Services_With_Distance() throws IOException, InterruptedException {
