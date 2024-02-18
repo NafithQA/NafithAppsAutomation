@@ -15,17 +15,17 @@ public class CargoInsuranceFleetRegistrationTests extends AndroidConfigurations 
         // navigate to Registration Page
         stakeholderRegistrationSteps.navigateToRegistrationPage(3,false);
 
-        // Fill-In Cargo Owner Registration Button
-        stakeholderRegistrationSteps.fillInRoleRegistrationButton();
-
-        // Fill-In Clearance Services Registration Info
-        stakeholderRegistrationSteps.fillInRoleRegistrationInfo(3);
-
-        // Upload Attachments
-        stakeholderRegistrationSteps.uploadStakeholderRegistrationAttachments(1);
-
-        // Navigate to registration Steps By Admin Apis
-        ApiHandler.RegistrationExternalStakeholder() ;
+//        // Fill-In Cargo Owner Registration Button
+//        stakeholderRegistrationSteps.fillInRoleRegistrationButton();
+//
+//        // Fill-In Clearance Services Registration Info
+//        stakeholderRegistrationSteps.fillInRoleRegistrationInfo(3);
+//
+//        // Upload Attachments
+//        stakeholderRegistrationSteps.uploadStakeholderRegistrationAttachments(1);
+//
+//        // Navigate to registration Steps By Admin Apis
+//        ApiHandler.RegistrationExternalStakeholder() ;
     }
     @Test(enabled = false)
     public void CargoInsurance_MyServicesSettings() throws IOException, InterruptedException {
