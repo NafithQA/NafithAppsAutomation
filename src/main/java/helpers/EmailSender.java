@@ -18,7 +18,7 @@ public class EmailSender {
         String from = "automation@nafith.com";
         // Recipient's email address
         String receiver1 = "dyousef@nafith.com";
-        String receiver2 = "lmaaweed@nafith.com";
+//        String receiver2 = "lmaaweed@nafith.com";
         // Sender's email password
         String password = "Automation-1234";
 
@@ -27,7 +27,7 @@ public class EmailSender {
         properties.put("mail.smtp.host", "smtp.gmail.com");
         properties.put("mail.smtp.port", "587");
         properties.put("mail.smtp.auth", "true");
-        properties.put("mail.smtp.starttls.enable", "true");
+        properties.put("mail.smtp.starttls.enable", "false");
         properties.put("mail.smtp.ssl.protocols", "TLSv1.2");
 
         // Authenticator to authenticate the sender's credentials
@@ -50,7 +50,7 @@ public class EmailSender {
 
             // Set To: header field of the header.
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(receiver1));
-            message.addRecipient(Message.RecipientType.CC, new InternetAddress(receiver2));
+//            message.addRecipient(Message.RecipientType.CC, new InternetAddress(receiver2));
 
             // Set Subject: header field
             message.setSubject("Test Automation Report Nstar App23232332322332");

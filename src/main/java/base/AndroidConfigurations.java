@@ -54,11 +54,11 @@ public class AndroidConfigurations {
             driver.quit();
         }
     }
-//    @AfterSuite(alwaysRun = true)
-//    public void sendReport() throws InterruptedException {
-//
-//        Thread.sleep(1000);
-//        EmailSender emailSender = new EmailSender();
-//        emailSender.sendReportByMail();
-//    }
+    @AfterSuite(alwaysRun = true)
+    public void sendReport() throws InterruptedException {
+
+        Thread.sleep(10000);
+        EmailSender emailSender = new EmailSender();
+        emailSender.sendReportByMail();
+    }
 }
